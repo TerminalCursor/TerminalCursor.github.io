@@ -75,56 +75,85 @@
 
       <main>
         
-<div class="d-flex flex-row flex-wrap justify-content-around">
-  <div class="mt-4 home-flex-item" style="width: calc(35% - 20px); min-width: 250px;">
-    <img class="w-100 rounded mb-2" src="/images/main.jpeg" />
-<div class="d-flex justify-content-center mt-2">
-  
-  <div class="ml-1 mr-1" style="width: 40px; height: 40px;">
-    <a href="https://github.com/TerminalCursor">
-      <i class="social-icon fab fa-github"></i>
-    </a>
-  </div>
-  
-</div>
-
-  </div>
-
-  <div class="home-flex-item mt-4" style="width: calc(65% - 20px);">
-    <div class="position-relative border rounded p-2" style="margin-bottom: 40px;">
-      <h4
-  class="pl-2 pr-2 bg-dark rounded border"
-  style="position: absolute; top: -1rem; right: 0.5em;"
->
-  <b>About</b>
-</h4>
-<h1>I am Terminal Cursor.</h1>
-<p>Welcome to my website, at the moment it is under construction, feel free to take a peek around.</p>
-
+<main>
+  <h1 class="mt-4">Posts</h1>
+  <div class="d-flex flex-column">
+    
+    <div
+      class="border mt-3 mb-3 p-3 rounded position-relative"
+    >
+      <h3 class="mb-0">
+        <a href="/posts/post-0000/" class="article-titles">Post 0000 - Links</a>
+      </h3>
+      <div
+      class="bg-dark pl-1 pr-1"
+      style="position: absolute; top: -1rem; left: 5px;"
+    >
+      <small>
+        <time>2020-05-02</time>
+      </small>
+      <span
+        class="more"
+        style="font-size: 1.2em;"
+        title="Show Metadata"
+        onclick="showMetadata(this)"
+      >
+        &#43;
+      </span>
     </div>
-    <div class="home-flex-item position-relative p-2 border rounded text-center">
-      <h4
-  class="pl-2 pr-2 bg-dark rounded border"
-  style="position: absolute; top: -0.7em; left: 0.5em;"
->
-  <b>Recent</b>
-</h4>
-
-<div class="pt-2">
+    <div class="m-2 metadata overflow-hidden" style="max-height: 0px;">
   
-  <a class="ml-1 list-entry-link text-uppercase" href="http://TerminalCursor.github.io/posts/post-0000/">
-    Post 0000 - Links
-  </a>
-  <p class="ml-2 mb-1"></p>
-  
-  <p class="text-right m-0">
-    <a href="/archive/">See All</a>
-  </p>
-</div>
-
+  <div class="metadata-value mb-1 taxa taxa-container-div list-sections">
+    <div>
+      Reading Time: 
+1 min
+      
+    </div>
+    <div>
+      Section:
+      <a
+        class="pl-1 pr-1 rounded border border-secondary"
+        href="/posts"
+        title="Section"
+      >Posts</a>
     </div>
   </div>
+  
+
+  
+  
+  
+  
+  
+  
 </div>
+
+
+      
+    </div>
+    
+  </div>
+  <div class="d-flex justify-content-center">
+    
+
+
+  </div>
+</main>
+<script>
+  let showMetadata = function(x) {
+    let elem = x.parentNode.nextElementSibling;
+    if (window.getComputedStyle(elem)["height"] === "0px") {
+      elem.style.maxHeight = elem.scrollHeight + "px";
+      x.innerHTML = "&times;";
+      x.title = "Hide Metadata";
+    } else {
+      elem.style.maxHeight = "0px";
+      x.innerHTML = "&#43;";
+      x.title = "Show Metadata";
+    }
+  };
+</script>
+
 
       </main>
     </div>

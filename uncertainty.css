@@ -1,0 +1,27 @@
+body {
+	color: #3282B8;
+	background-color: #1B262C;
+}
+body b {
+	color: #60C0FA;
+}
+body h1 {
+	color: #bb841b;
+}
+.main {
+	margin-left: 160px;
+	padding: 0px 10px;
+}
+button {
+	background-color: #0F4C75;
+	border-color: #60C0FA;
+	color: #60C0FA;
+}
+input {
+	background-color: #0F4C75;
+	border: none;
+	color: #60C0FA;
+}
+hr {
+	border-color: #292934;
+}

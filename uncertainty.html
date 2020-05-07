@@ -1,0 +1,42 @@
+
+<!DOCTYPE HTML>
+<HEAD>
+	<title>Simple Site - Error Prop</title>
+  <link rel="stylesheet" href="uncertainty.css">
+</HEAD>
+<BODY>
+  Example:<br/>
+  Function: <b>t,1/t</b>
+  Significant Figures: <b>3</b>
+  Parameters: <b>3.145e1</b>
+  Uncertainties: <b>1.75</b>
+  <br/>
+  Output: <b>(3.18&#177;0.18)&#8226;10<sup>-2</sup></b>
+  <hr>
+  <table>
+    <tr>
+      <td>Function*</td>
+      <td><input oninput="updateFunc()" type="text" value="t,1/t" id="func"/></td>
+      <td id="funcVal">f(t) = 1/t</td>
+    </tr>
+    <tr>
+      <td>Significant Figures</td>
+      <td><input type="text" value="3" id="sf"/></td>
+    </tr>
+    <tr>
+      <td>Parameters*</td>
+      <td><input oninput="updateParams()" type="text" value="3.145e1" id="params"/></td>
+      <td id="paramVals">3.145e1</td>
+    </tr>
+    <tr>
+      <td>Uncertainties*</td>
+      <td><input oninput="updateUncert()" type="text" value="1.75" id="uncert"/></td>
+      <td id="uncertVals">1.75</td>
+    </tr>
+  </table>
+  <i>* - Comma seperated entries</i><br/>
+  <button onclick="calc()">Calculate Uncertainty Propogation</button>
+  <br/><br/>
+  Output:<hr><div id="out"></div>
+  <script src="error_propogation.js"></script>
+</BODY>

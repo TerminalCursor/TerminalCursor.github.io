@@ -92,7 +92,7 @@
 <article class="border rounded p-3 position-relative" style="margin-top: 2.5em;">
   <div class="header">
     <h1 style="font-size: 2.5em;">
-      Project Overview
+      ASM Disk Project Overview
     </h1>
     <div
     class="mb-1 mr-3 pl-1 pr-1 rounded bg-dark"
@@ -112,7 +112,7 @@
   <div class="metadata-value mb-1 taxa taxa-container-div list-sections">
     <div>
       Reading Time: 
-3 mins
+2 mins
       
     </div>
     <div>
@@ -136,14 +136,19 @@
 </div>
   <div class="article pb-3 pt-3 border-bottom border-top">
     
-    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile"><span style="color:#a6e22e">build</span><span style="color:#f92672">:</span> main.asm
-	nasm -f elf64 -o main.o main.asm
-	ld main.o -o build
-	chmod +x build
+    <p>Makefile</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile">MAIN<span style="color:#f92672">=</span>main
+OUT<span style="color:#f92672">=</span>build
+EXTRAS<span style="color:#f92672">=</span>nameData.dat
+<span style="color:#a6e22e">build</span><span style="color:#f92672">:</span> ${MAIN}.asm
+	nasm -f elf64 -o <span style="color:#e6db74">${</span>MAIN<span style="color:#e6db74">}</span>.o <span style="color:#e6db74">${</span>MAIN<span style="color:#e6db74">}</span>.asm
+	ld <span style="color:#e6db74">${</span>MAIN<span style="color:#e6db74">}</span>.o -o <span style="color:#e6db74">${</span>OUT<span style="color:#e6db74">}</span>
+	chmod +x <span style="color:#e6db74">${</span>OUT<span style="color:#e6db74">}</span>
 
 <span style="color:#a6e22e">clean</span><span style="color:#f92672">:</span>
-	rm -rf build main.o nameData.dat
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-asm" data-lang="asm"><span style="color:#a6e22e">section</span> <span style="color:#66d9ef">.data</span>
+	rm -rf <span style="color:#e6db74">${</span>MAIN<span style="color:#e6db74">}</span>.o <span style="color:#e6db74">${</span>EXTRAS<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OUT<span style="color:#e6db74">}</span>
+</code></pre></div><p>main.asm</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-asm" data-lang="asm"><span style="color:#a6e22e">section</span> <span style="color:#66d9ef">.data</span>
 	<span style="color:#a6e22e">fileName</span> <span style="color:#66d9ef">db</span> <span style="color:#960050;background-color:#1e0010">&#34;</span>.<span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">data.dat</span><span style="color:#960050;background-color:#1e0010">&#34;</span>, <span style="color:#ae81ff">0</span>
 	<span style="color:#a6e22e">varDB</span>  <span style="color:#66d9ef">db</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#66d9ef">Hello</span> <span style="color:#66d9ef">there</span>, <span style="color:#66d9ef">this</span> <span style="color:#66d9ef">is</span> <span style="color:#66d9ef">a</span> <span style="color:#66d9ef">very</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">message</span> <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">be</span> <span style="color:#66d9ef">written</span> <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">a</span> <span style="color:#66d9ef">file</span><span style="color:#960050;background-color:#1e0010">&#39;</span>, <span style="color:#ae81ff">0x0A</span>
 	<span style="color:#a6e22e">varDBL</span> <span style="color:#66d9ef">equ</span> <span style="color:#66d9ef">$</span> - <span style="color:#66d9ef">varDB</span>
@@ -205,69 +210,7 @@ _start:
 	<span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">rax</span>, <span style="color:#ae81ff">60</span>		<span style="color:#75715e">;; Exit
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">mov</span> <span style="color:#66d9ef">rdi</span>, <span style="color:#ae81ff">0</span>		<span style="color:#75715e">;; Exit code
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">syscall</span>
-</code></pre></div><pre><code class="language-assembly" data-lang="assembly">section .data
-	fileName db &quot;./data.dat&quot;, 0
-	varDB  db 'Hello there, this is a very long message to be written to a file', 0x0A
-	varDBL equ $ - varDB
-
-section .bss
-	fileData resb 200
-
-section .text
-	global _start
-
-_start:
-;; File Create
-fcreate:
-	mov rax, 85		;; File Create
-	mov rdi, fileName	;; File Name
-	mov rsi, 644q		;; rw-r--r--
-	syscall
-
-;; File open
-fopen:
-	mov rax, 0x02		;; File Open
-	mov rdi, fileName	;; File Name
-	mov rsi, 02		;; RDWR
-	syscall 		;; File handle in rax
-
-;; File write
-fwrite:
-	mov rdi, rax		;; File handler to rdi
-	mov rax, 1		;; Write to file
-	mov rsi, varDB		;; Data to write
-	mov rdx, varDBL		;; Data length
-	syscall
-
-;; File read
-fread:
-	mov rdi, rax		;; File handler
-	mov rax, 0		;; Read
-	mov rsi, fileData	;; File data
-	mov rdx, 200		;; File data max length
-	syscall
-
-
-;; File close
-fclose:
-	mov rdi, rax		;; File handler
-	mov rax, 3		;; File Close
-	syscall
-
-;; Print stuff
-print:
-	mov rax, 1		;; Write
-	mov rdi, 1		;; STDOUT
-	mov rsi, fileData	;; Buffer
-	mov rdx, 200		;; Length
-	syscall
-
-;; Exit
-exit:
-	mov rax, 60		;; Exit
-	mov rdi, 0		;; Exit code
-	syscall
-</code></pre>
+</code></pre></div>
   </div>
   <div class="mt-4 d-flex flex-row justify-content-around">
   <div><i class="text-secondary fas fa-chevron-circle-left" style="font-size: 2em;"></i></div>

@@ -129,82 +129,26 @@
 </div>
   <div class="article pb-3 pt-3 border-bottom border-top">
     
-    <!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->#define	OK	0
-<!-- raw HTML omitted --><!-- raw HTML omitted -->#define	NO_INPUT	1
-<!-- raw HTML omitted --><!-- raw HTML omitted -->#define	TOO_LONG	2
-<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->// Print a given integer in hex form, helpful for debugging
-<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->printHex<!-- raw HTML omitted -->(<!-- raw HTML omitted -->int<!-- raw HTML omitted --> a) {
-printf(<!-- raw HTML omitted -->&quot;0x%08X<!-- raw HTML omitted --><!-- raw HTML omitted -->\n<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->, a);
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->;
-}</p>
-<p><!-- raw HTML omitted -->// Safe input method
-<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->static<!-- raw HTML omitted --> <!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->getLine<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --> buff, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> size) {
-<!-- raw HTML omitted -->int<!-- raw HTML omitted --> ch, extra;
-fflush(stdout);
-<!-- raw HTML omitted -->int<!-- raw HTML omitted --> broken <!-- raw HTML omitted -->=<!-- raw HTML omitted --> <!-- raw HTML omitted -->1<!-- raw HTML omitted -->;
-<!-- raw HTML omitted -->for<!-- raw HTML omitted -->(<!-- raw HTML omitted -->int<!-- raw HTML omitted --> i <!-- raw HTML omitted -->=<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->; i <!-- raw HTML omitted -->&lt;<!-- raw HTML omitted --> size; i<!-- raw HTML omitted -->++<!-- raw HTML omitted -->) {
-ch <!-- raw HTML omitted -->=<!-- raw HTML omitted --> getchar();
-<!-- raw HTML omitted -->if<!-- raw HTML omitted -->(ch <!-- raw HTML omitted -->==<!-- raw HTML omitted --> EOF <!-- raw HTML omitted -->||<!-- raw HTML omitted --> ch <!-- raw HTML omitted -->==<!-- raw HTML omitted --> <!-- raw HTML omitted -->'\n'<!-- raw HTML omitted -->) {
-<!-- raw HTML omitted -->if<!-- raw HTML omitted -->(i <!-- raw HTML omitted -->==<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->)
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> NO_INPUT;
-broken <!-- raw HTML omitted -->=<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->;
-<!-- raw HTML omitted -->break<!-- raw HTML omitted -->;
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#define	OK	0
+</span><span style="color:#75715e">#define	NO_INPUT	1
+</span><span style="color:#75715e">#define	TOO_LONG	2
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">testFunc</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b) {
+	<span style="color:#66d9ef">if</span>(a <span style="color:#f92672">==</span> b)
+		<span style="color:#66d9ef">return</span> OK;
+	<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(a <span style="color:#f92672">&gt;</span> b)
+		<span style="color:#66d9ef">return</span> NO_INPUT;
+	<span style="color:#66d9ef">else</span>
+		<span style="color:#66d9ef">return</span> TOO_LONG;
 }
-<!-- raw HTML omitted -->else<!-- raw HTML omitted -->
-buff[i] <!-- raw HTML omitted -->=<!-- raw HTML omitted --> ch;
-}
-<!-- raw HTML omitted -->if<!-- raw HTML omitted -->(broken <!-- raw HTML omitted -->==<!-- raw HTML omitted --> <!-- raw HTML omitted -->1<!-- raw HTML omitted -->){
-<!-- raw HTML omitted -->while<!-- raw HTML omitted -->((getchar()) <!-- raw HTML omitted -->!=<!-- raw HTML omitted --> <!-- raw HTML omitted -->'\n'<!-- raw HTML omitted -->);
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> TOO_LONG;
-}
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> OK;
-}</p>
-<p><!-- raw HTML omitted -->// Getting input
-<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->getStr<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --> buffer, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> max_length) {
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> getLine(buffer, max_length);
-}</p>
-<p><!-- raw HTML omitted -->// Writing Strings with defined length
-<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->printStr<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --> message, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> length) {
-printf(<!-- raw HTML omitted -->&quot;%.*s<!-- raw HTML omitted --><!-- raw HTML omitted -->\n<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->, length, message);
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->;
-}</p>
-<p><!-- raw HTML omitted -->// Creating an empty file
-<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->createFile<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted --><em><!-- raw HTML omitted --> filename) {
-FILE<!-- raw HTML omitted --></em><!-- raw HTML omitted --> fp;
-fp <!-- raw HTML omitted -->=<!-- raw HTML omitted --> fopen(filename, <!-- raw HTML omitted -->&quot;a+&quot;<!-- raw HTML omitted -->);
-<!-- raw HTML omitted -->if<!-- raw HTML omitted -->(fp <!-- raw HTML omitted -->==<!-- raw HTML omitted --> NULL)
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->1<!-- raw HTML omitted -->;
-fclose(fp);
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->;
-}</p>
-<p><!-- raw HTML omitted -->// Appending to a file
-<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->appendToFile<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted --><em><!-- raw HTML omitted --> filename, <!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted --></em><!-- raw HTML omitted --> buffer, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> length) {
-FILE<!-- raw HTML omitted -->*<!-- raw HTML omitted --> fp;
-fp <!-- raw HTML omitted -->=<!-- raw HTML omitted --> fopen(filename, <!-- raw HTML omitted -->&quot;a+&quot;<!-- raw HTML omitted -->);
-<!-- raw HTML omitted -->if<!-- raw HTML omitted -->(fp <!-- raw HTML omitted -->==<!-- raw HTML omitted --> NULL)
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->1<!-- raw HTML omitted -->;
-fprintf(fp, <!-- raw HTML omitted -->&quot;%.*s<!-- raw HTML omitted --><!-- raw HTML omitted -->\n<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->, length, buffer);
-fclose(fp);
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->;
-}</p>
-<p><!-- raw HTML omitted -->// Clearing and writing to a file
-<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->writeToFile<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted --><em><!-- raw HTML omitted --> filename, <!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted --></em><!-- raw HTML omitted --> buffer, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> length) {
-FILE<!-- raw HTML omitted -->*<!-- raw HTML omitted --> fp;
-fp <!-- raw HTML omitted -->=<!-- raw HTML omitted --> fopen(filename, <!-- raw HTML omitted -->&quot;w+&quot;<!-- raw HTML omitted -->);
-<!-- raw HTML omitted -->if<!-- raw HTML omitted -->(fp <!-- raw HTML omitted -->==<!-- raw HTML omitted --> NULL)
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->1<!-- raw HTML omitted -->;
-fprintf(fp, <!-- raw HTML omitted -->&quot;%.*s<!-- raw HTML omitted --><!-- raw HTML omitted -->\n<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->, length, buffer);
-fclose(fp);
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->;
-}</p>
-<p><!-- raw HTML omitted -->// Removing a file
-<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->deleteFile<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --> filename) {
-<!-- raw HTML omitted -->return<!-- raw HTML omitted --> remove(filename);
-}</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 
+<span style="color:#66d9ef">double</span> <span style="color:#a6e22e">testTwo</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> buffer, <span style="color:#66d9ef">int</span> length) {
+	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> length; i<span style="color:#f92672">++</span>) {
+		buffer[i] <span style="color:#f92672">=</span> i;
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0.9</span>;
+}
+</code></pre></div>
   </div>
   <div class="mt-4 d-flex flex-row justify-content-around">
   <div><i class="text-secondary fas fa-chevron-circle-left" style="font-size: 2em;"></i></div>

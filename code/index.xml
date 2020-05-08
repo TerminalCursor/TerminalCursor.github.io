@@ -6,7 +6,7 @@
     <description>Recent content in Codes on FOSS Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 May 2020 11:22:11 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 08 May 2020 11:31:47 -0700</lastBuildDate>
     
 	<atom:link href="http://TerminalCursor.github.io/code/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,12 +14,10 @@
     <item>
       <title>C Library</title>
       <link>http://TerminalCursor.github.io/code/c_library/</link>
-      <pubDate>Fri, 08 May 2020 11:22:11 -0700</pubDate>
+      <pubDate>Fri, 08 May 2020 11:31:47 -0700</pubDate>
       
       <guid>http://TerminalCursor.github.io/code/c_library/</guid>
-      <description>#define	OK	0 #define	NO_INPUT	1 #define	TOO_LONG	2 // Print a given integer in hex form, helpful for debugging intprintHex(inta) { printf(&amp;quot;0x%08X\n&amp;quot;, a); return0; }
-// Safe input method staticintgetLine(char*buff, intsize) { intch, extra; fflush(stdout); intbroken =1; for(inti =0; i &amp;lt;size; i++) { ch =getchar(); if(ch ==EOF ||ch ==&#39;\n&#39;) { if(i ==0) returnNO_INPUT; broken =0; break; } elsebuff[i] =ch; } if(broken ==1){ while((getchar()) !=&#39;\n&#39;); returnTOO_LONG; } returnOK; }
-// Getting input intgetStr(char*buffer, intmax_length) { returngetLine(buffer, max_length); }</description>
+      <description>#define	OK	0 #define	NO_INPUT	1 #define	TOO_LONG	2  static int testFunc(int a, int b) { if(a == b) return OK; else if(a &amp;gt; b) return NO_INPUT; else return TOO_LONG; } double testTwo(char* buffer, int length) { for(int i = 0; i &amp;lt; length; i++) { buffer[i] = i; } return 0.9; } </description>
     </item>
     
   </channel>

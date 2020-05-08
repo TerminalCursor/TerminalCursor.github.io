@@ -6,10 +6,19 @@
     <description>Recent content in Codes on FOSS Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 May 2020 11:31:47 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 08 May 2020 11:41:10 -0700</lastBuildDate>
     
 	<atom:link href="http://TerminalCursor.github.io/code/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Main Function</title>
+      <link>http://TerminalCursor.github.io/code/asm_main/</link>
+      <pubDate>Fri, 08 May 2020 11:41:10 -0700</pubDate>
+      
+      <guid>http://TerminalCursor.github.io/code/asm_main/</guid>
+      <description>global _start extern printHex extern getStr extern printStr extern createFile extern deleteFile extern appendToFile extern writeToFile section .data prompts db &amp;#34;Please enter your name: &amp;#34; outP db &amp;#34;Hello: &amp;#34; fileName db &amp;#34;./nameData.dat&amp;#34;,0x00 fileSucc db &amp;#34;File Write Successful&amp;#34; fileFail db &amp;#34;File Write Failed&amp;#34; section .bss data times 20 resb 0x20 charInput resb 0x20 section .text _start: ;; 	;; Conditional Removal of File 	;; 	lea rdi, [charInput]	;; One byte buffer 	mov rsi, 1	;; One byte 	call getStr	;; Read  mov rdi, [charInput]	;; Load user input 	cmp rdi, 0x79	;; Check if &amp;#39;y&amp;#39; 	je remFile	;; Remove if &amp;#39;y&amp;#39; 	jmp wFile	;; Else get the data  remFile: lea rdi, [fileName]	;; Get the file name 	call deleteFile	;; Delete the file 	mov rdi, rax	;; Move return code 	call printHex	;; Print the hex of the return code in rdi 	jmp exit wFile: ;; 	;; Get Name 	;; 	lea rdi, [prompts]	;; Prompt location 	mov rsi, 24	;; Prompt length 	call printStr	;; Write to STDOUT  lea rdi, [data]	;; Name location 	mov rsi, 20	;; Name max length 	call getStr	;; Read STDIN  lea rdi, [outP]	;; Print the Hello message 	mov rsi, 7	;; Length of message 	call printStr	;; Write to STDOUT  lea rdi, [data]	;; Location of the name 	mov rsi, 20	;; Max length 	call printStr	;; Write to STDOUT  ;; WRITE NAME TO FILE 	lea rdi, [fileName]	;; Filename - first parameter 	lea rsi, [data]	;; File data - second parameter 	mov rdx, 20	;; Buffer length - third parameter 	call appendToFile	;; Write to file, creating if doesn&amp;#39;t exist  cmp rax, 0x0	;; Check if the write was successful 	je fileSuccessfulWrite	;; If so, say so, else say that it didn&amp;#39;t and exit  fileFailWrite: lea rdi, [fileFail]	;; Write Fail Message 	mov rsi, 17	;; Write Fail Message Length 	call printStr	;; Write to STDOUT  jmp exit	;; Exit  fileSuccessfulWrite: lea rdi, [fileSucc]	;; Write Successful Message 	mov rsi, 21	;; Write Successful Message Length 	call printStr	;; Write to STDOUT  jmp exit exit: ;; 	;; Exit 	;; 	mov rax, 60	;; Exit 	mov rdi, 0	;; Exit code 	syscall </description>
+    </item>
     
     <item>
       <title>C Library</title>

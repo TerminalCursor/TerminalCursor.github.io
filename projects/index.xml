@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on FOSS Website</title>
+    <link>http://TerminalCursor.github.io/projects/</link>
+    <description>Recent content in Projects on FOSS Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 May 2020 11:47:01 -0700</lastBuildDate>
+    
+	<atom:link href="http://TerminalCursor.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Overview</title>
+      <link>http://TerminalCursor.github.io/projects/nasm/disk/project_overview/</link>
+      <pubDate>Fri, 08 May 2020 11:47:01 -0700</pubDate>
+      
+      <guid>http://TerminalCursor.github.io/projects/nasm/disk/project_overview/</guid>
+      <description>build: main.asm nasm -f elf64 -o main.o main.asm ld main.o -o build chmod +x build clean: rm -rf build main.o nameData.dat section .data fileName db &amp;#34;./data.dat&amp;#34;, 0 varDB db &amp;#39;Hello there, this is a very long message to be written to a file&amp;#39;, 0x0A varDBL equ $ - varDB section .bss fileData resb 200 section .text global _start _start: ;; File Create fcreate: mov rax, 85	;; File Create 	mov rdi, fileName	;; File Name 	mov rsi, 644q	;; rw-r--r-- 	syscall ;; File open fopen: mov rax, 0x02	;; File Open 	mov rdi, fileName	;; File Name 	mov rsi, 02	;; RDWR 	syscall ;; File handle in rax  ;; File write fwrite: mov rdi, rax	;; File handler to rdi 	mov rax, 1	;; Write to file 	mov rsi, varDB	;; Data to write 	mov rdx, varDBL	;; Data length 	syscall ;; File read fread: mov rdi, rax	;; File handler 	mov rax, 0	;; Read 	mov rsi, fileData	;; File data 	mov rdx, 200	;; File data max length 	syscall ;; File close fclose: mov rdi, rax	;; File handler 	mov rax, 3	;; File Close 	syscall ;; Print stuff print: mov rax, 1	;; Write 	mov rdi, 1	;; STDOUT 	mov rsi, fileData	;; Buffer 	mov rdx, 200	;; Length 	syscall ;; Exit exit: mov rax, 60	;; Exit 	mov rdi, 0	;; Exit code 	syscall section .</description>
+    </item>
+    
+  </channel>
+</rss>

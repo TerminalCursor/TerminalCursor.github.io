@@ -105,7 +105,7 @@
   <div class="metadata-value mb-1 taxa taxa-container-div list-sections">
     <div>
       Reading Time: 
-1 min
+2 mins
       
     </div>
     <div>
@@ -129,24 +129,95 @@
 </div>
   <div class="article pb-3 pt-3 border-bottom border-top">
     
-    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#define	OK	0
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">printHex</span>(<span style="color:#66d9ef">int</span>);
+<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getStr</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>, <span style="color:#66d9ef">int</span>);
+<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">printStr</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>,<span style="color:#66d9ef">int</span>);
+<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">createFile</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>);
+<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">deleteFile</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>);
+<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">appendToFile</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>,<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>,<span style="color:#66d9ef">int</span>);
+<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">writeToFile</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>,<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>,<span style="color:#66d9ef">int</span>);
+
+<span style="color:#75715e">#define	OK	0
 </span><span style="color:#75715e">#define	NO_INPUT	1
 </span><span style="color:#75715e">#define	TOO_LONG	2
 </span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">testFunc</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b) {
-	<span style="color:#66d9ef">if</span>(a <span style="color:#f92672">==</span> b)
-		<span style="color:#66d9ef">return</span> OK;
-	<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(a <span style="color:#f92672">&gt;</span> b)
-		<span style="color:#66d9ef">return</span> NO_INPUT;
-	<span style="color:#66d9ef">else</span>
-		<span style="color:#66d9ef">return</span> TOO_LONG;
+<span style="color:#75715e">// Print a given integer in hex form, helpful for debugging
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">printHex</span>(<span style="color:#66d9ef">int</span> a) {
+	printf(<span style="color:#e6db74">&#34;0x%08X</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a);
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 
-<span style="color:#66d9ef">double</span> <span style="color:#a6e22e">testTwo</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> buffer, <span style="color:#66d9ef">int</span> length) {
-	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> length; i<span style="color:#f92672">++</span>) {
-		buffer[i] <span style="color:#f92672">=</span> i;
+<span style="color:#75715e">// Safe input method
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getLine</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> buff, <span style="color:#66d9ef">int</span> size) {
+	<span style="color:#66d9ef">int</span> ch, extra;
+	fflush(stdout);
+	<span style="color:#66d9ef">int</span> broken <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>) {
+		ch <span style="color:#f92672">=</span> getchar();
+		<span style="color:#66d9ef">if</span>(ch <span style="color:#f92672">==</span> EOF <span style="color:#f92672">||</span> ch <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;\n&#39;</span>) {
+			<span style="color:#66d9ef">if</span>(i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+				<span style="color:#66d9ef">return</span> NO_INPUT;
+			broken <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+			<span style="color:#66d9ef">break</span>;
+		}
+		<span style="color:#66d9ef">else</span>
+			buff[i] <span style="color:#f92672">=</span> ch;
 	}
-	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0.9</span>;
+	<span style="color:#66d9ef">if</span>(broken <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>){
+		<span style="color:#66d9ef">while</span>((getchar()) <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\n&#39;</span>);
+		<span style="color:#66d9ef">return</span> TOO_LONG;
+	}
+	<span style="color:#66d9ef">return</span> OK;
+}
+
+<span style="color:#75715e">// Getting input
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getStr</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> buffer, <span style="color:#66d9ef">int</span> max_length) {
+	<span style="color:#66d9ef">return</span> getLine(buffer, max_length);
+}
+
+<span style="color:#75715e">// Writing Strings with defined length
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">printStr</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> message, <span style="color:#66d9ef">int</span> length) {
+	printf(<span style="color:#e6db74">&#34;%.*s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, length, message);
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+
+<span style="color:#75715e">// Creating an empty file
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">createFile</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> filename) {
+	FILE<span style="color:#f92672">*</span> fp;
+	fp <span style="color:#f92672">=</span> fopen(filename, <span style="color:#e6db74">&#34;a+&#34;</span>);
+	<span style="color:#66d9ef">if</span>(fp <span style="color:#f92672">==</span> NULL)
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+	fclose(fp);
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+
+<span style="color:#75715e">// Appending to a file
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">appendToFile</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> filename, <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> buffer, <span style="color:#66d9ef">int</span> length) {
+	FILE<span style="color:#f92672">*</span> fp;
+	fp <span style="color:#f92672">=</span> fopen(filename, <span style="color:#e6db74">&#34;a+&#34;</span>);
+	<span style="color:#66d9ef">if</span>(fp <span style="color:#f92672">==</span> NULL)
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+	fprintf(fp, <span style="color:#e6db74">&#34;%.*s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, length, buffer);
+	fclose(fp);
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+
+<span style="color:#75715e">// Clearing and writing to a file
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">writeToFile</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> filename, <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> buffer, <span style="color:#66d9ef">int</span> length) {
+	FILE<span style="color:#f92672">*</span> fp;
+	fp <span style="color:#f92672">=</span> fopen(filename, <span style="color:#e6db74">&#34;w+&#34;</span>);
+	<span style="color:#66d9ef">if</span>(fp <span style="color:#f92672">==</span> NULL)
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+	fprintf(fp, <span style="color:#e6db74">&#34;%.*s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, length, buffer);
+	fclose(fp);
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+
+<span style="color:#75715e">// Removing a file
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">deleteFile</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> filename) {
+	<span style="color:#66d9ef">return</span> remove(filename);
 }
 </code></pre></div>
   </div>

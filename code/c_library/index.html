@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <title>FOSS Website</title>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta name="description" content="Here is a description" />
+  <meta name="author" content="Terminal Cursor" />
+  <meta name="generator" content="mero theme by Darshan in Hugo 0.69.2" />
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Overlock|Roboto+Mono&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/mero.css" />
+
+  <script src="/js/mero.js"></script>
+</head>
+
+  <body class="bg-dark text-white m-auto" style="width:95%; max-width: 1024px;">
+    <div class="wrapper">
+      <nav class="mb-3 mt-3 ml-1">
+  <div class="d-flex flex-row">
+    <div
+      class="menu-item border border-warning bg-dark p-2"
+      style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;"
+    >
+      <a href="/"><span>Home</span> </a>
+    </div>
+    <div class="menu-item dropdown border border-warning bg-dark p-2">
+      <span class="dropbtn text-warning" onclick="toggleMenu(this)"
+        >Sections <i class="fas fa-angle-down"></i
+      ></span>
+      <div
+        class="dropdown-content p-2 bg-dark2 mt-2 rounded w-auto mt-1 d-none"
+        style="min-width: 200px;"
+      >
+        <ul class="list-unstyled">
+          
+          
+          
+          <li class="pt-2">
+            <a href="http://TerminalCursor.github.io/code/">Codes</a>
+          </li>
+          
+          
+          
+          
+          <li class="pt-2">
+            <a href="http://TerminalCursor.github.io/posts/">Posts</a>
+          </li>
+          
+          
+        </ul>
+      </div>
+    </div>
+    <div class="menu-item border border-warning bg-dark p-2">
+      <a
+        href="/alltaxa/"
+        ><span>Taxa</span>
+      </a>
+    </div>
+    <div class="menu-item border border-warning bg-dark p-2"
+    style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+      <a
+        href="/archive/"
+        ><span>Archive</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+      <main>
+        
+<article class="border rounded p-3 position-relative" style="margin-top: 2.5em;">
+  <div class="header">
+    <h1 style="font-size: 2.5em;">
+      C Library
+    </h1>
+    <div
+    class="mb-1 mr-3 pl-1 pr-1 rounded bg-dark"
+    style="position: absolute; top: -19px; font-size: 0.9em;"
+  >
+    <time>2020-05-08</time>    
+    <span
+      class="more"
+      style="font-size: 1.5em;"
+      title="Show Metadata"
+      onclick="showMetadata(this)"
+    >
+      &#43;
+    </span>
+  </div><div class="m-2 metadata overflow-hidden" style="max-height: 0px;">
+  
+  <div class="metadata-value mb-1 taxa taxa-container-div list-sections">
+    <div>
+      Reading Time: 
+1 min
+      
+    </div>
+    <div>
+      Section:
+      <a
+        class="pl-1 pr-1 rounded border border-secondary"
+        href="/code"
+        title="Section"
+      >Codes</a>
+    </div>
+  </div>
+  
+
+  
+  
+  
+  
+  
+  
+</div>
+</div>
+  <div class="article pb-3 pt-3 border-bottom border-top">
+    
+    <!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->#define	OK	0
+<!-- raw HTML omitted --><!-- raw HTML omitted -->#define	NO_INPUT	1
+<!-- raw HTML omitted --><!-- raw HTML omitted -->#define	TOO_LONG	2
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->// Print a given integer in hex form, helpful for debugging
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->printHex<!-- raw HTML omitted -->(<!-- raw HTML omitted -->int<!-- raw HTML omitted --> a) {
+printf(<!-- raw HTML omitted -->&quot;0x%08X<!-- raw HTML omitted --><!-- raw HTML omitted -->\n<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->, a);
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->;
+}</p>
+<p><!-- raw HTML omitted -->// Safe input method
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->static<!-- raw HTML omitted --> <!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->getLine<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --> buff, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> size) {
+<!-- raw HTML omitted -->int<!-- raw HTML omitted --> ch, extra;
+fflush(stdout);
+<!-- raw HTML omitted -->int<!-- raw HTML omitted --> broken <!-- raw HTML omitted -->=<!-- raw HTML omitted --> <!-- raw HTML omitted -->1<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->for<!-- raw HTML omitted -->(<!-- raw HTML omitted -->int<!-- raw HTML omitted --> i <!-- raw HTML omitted -->=<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->; i <!-- raw HTML omitted -->&lt;<!-- raw HTML omitted --> size; i<!-- raw HTML omitted -->++<!-- raw HTML omitted -->) {
+ch <!-- raw HTML omitted -->=<!-- raw HTML omitted --> getchar();
+<!-- raw HTML omitted -->if<!-- raw HTML omitted -->(ch <!-- raw HTML omitted -->==<!-- raw HTML omitted --> EOF <!-- raw HTML omitted -->||<!-- raw HTML omitted --> ch <!-- raw HTML omitted -->==<!-- raw HTML omitted --> <!-- raw HTML omitted -->'\n'<!-- raw HTML omitted -->) {
+<!-- raw HTML omitted -->if<!-- raw HTML omitted -->(i <!-- raw HTML omitted -->==<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->)
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> NO_INPUT;
+broken <!-- raw HTML omitted -->=<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->break<!-- raw HTML omitted -->;
+}
+<!-- raw HTML omitted -->else<!-- raw HTML omitted -->
+buff[i] <!-- raw HTML omitted -->=<!-- raw HTML omitted --> ch;
+}
+<!-- raw HTML omitted -->if<!-- raw HTML omitted -->(broken <!-- raw HTML omitted -->==<!-- raw HTML omitted --> <!-- raw HTML omitted -->1<!-- raw HTML omitted -->){
+<!-- raw HTML omitted -->while<!-- raw HTML omitted -->((getchar()) <!-- raw HTML omitted -->!=<!-- raw HTML omitted --> <!-- raw HTML omitted -->'\n'<!-- raw HTML omitted -->);
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> TOO_LONG;
+}
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> OK;
+}</p>
+<p><!-- raw HTML omitted -->// Getting input
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->getStr<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --> buffer, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> max_length) {
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> getLine(buffer, max_length);
+}</p>
+<p><!-- raw HTML omitted -->// Writing Strings with defined length
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->printStr<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --> message, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> length) {
+printf(<!-- raw HTML omitted -->&quot;%.*s<!-- raw HTML omitted --><!-- raw HTML omitted -->\n<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->, length, message);
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->;
+}</p>
+<p><!-- raw HTML omitted -->// Creating an empty file
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->createFile<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted --><em><!-- raw HTML omitted --> filename) {
+FILE<!-- raw HTML omitted --></em><!-- raw HTML omitted --> fp;
+fp <!-- raw HTML omitted -->=<!-- raw HTML omitted --> fopen(filename, <!-- raw HTML omitted -->&quot;a+&quot;<!-- raw HTML omitted -->);
+<!-- raw HTML omitted -->if<!-- raw HTML omitted -->(fp <!-- raw HTML omitted -->==<!-- raw HTML omitted --> NULL)
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->1<!-- raw HTML omitted -->;
+fclose(fp);
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->;
+}</p>
+<p><!-- raw HTML omitted -->// Appending to a file
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->appendToFile<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted --><em><!-- raw HTML omitted --> filename, <!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted --></em><!-- raw HTML omitted --> buffer, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> length) {
+FILE<!-- raw HTML omitted -->*<!-- raw HTML omitted --> fp;
+fp <!-- raw HTML omitted -->=<!-- raw HTML omitted --> fopen(filename, <!-- raw HTML omitted -->&quot;a+&quot;<!-- raw HTML omitted -->);
+<!-- raw HTML omitted -->if<!-- raw HTML omitted -->(fp <!-- raw HTML omitted -->==<!-- raw HTML omitted --> NULL)
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->1<!-- raw HTML omitted -->;
+fprintf(fp, <!-- raw HTML omitted -->&quot;%.*s<!-- raw HTML omitted --><!-- raw HTML omitted -->\n<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->, length, buffer);
+fclose(fp);
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->;
+}</p>
+<p><!-- raw HTML omitted -->// Clearing and writing to a file
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->writeToFile<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted --><em><!-- raw HTML omitted --> filename, <!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted --></em><!-- raw HTML omitted --> buffer, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> length) {
+FILE<!-- raw HTML omitted -->*<!-- raw HTML omitted --> fp;
+fp <!-- raw HTML omitted -->=<!-- raw HTML omitted --> fopen(filename, <!-- raw HTML omitted -->&quot;w+&quot;<!-- raw HTML omitted -->);
+<!-- raw HTML omitted -->if<!-- raw HTML omitted -->(fp <!-- raw HTML omitted -->==<!-- raw HTML omitted --> NULL)
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->1<!-- raw HTML omitted -->;
+fprintf(fp, <!-- raw HTML omitted -->&quot;%.*s<!-- raw HTML omitted --><!-- raw HTML omitted -->\n<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->, length, buffer);
+fclose(fp);
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->0<!-- raw HTML omitted -->;
+}</p>
+<p><!-- raw HTML omitted -->// Removing a file
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->int<!-- raw HTML omitted --> <!-- raw HTML omitted -->deleteFile<!-- raw HTML omitted -->(<!-- raw HTML omitted -->char<!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --> filename) {
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> remove(filename);
+}</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+
+  </div>
+  <div class="mt-4 d-flex flex-row justify-content-around">
+  <div><i class="text-secondary fas fa-chevron-circle-left" style="font-size: 2em;"></i></div>
+  <div><i class="text-secondary fas fa-chevron-circle-right" style="font-size: 2em;"></i></div>
+</div>
+
+</article>
+<script>
+  let showMetadata = function(x) {
+    let elem = x.parentNode.nextElementSibling;
+    if (window.getComputedStyle(elem)["height"] === "0px") {
+      elem.style.maxHeight = elem.scrollHeight + "px";
+      x.innerHTML = "&times;";
+      x.title = "Hide Metadata";
+    } else {
+      elem.style.maxHeight = "0px";
+      x.innerHTML = "&#43;";
+      x.title = "Show Metadata";
+    }
+  };
+</script>
+
+
+      </main>
+    </div>
+    <footer>
+  <div class="w-50 bg-danger ml-auto mr-auto mt-4" style="height: 2px;"></div>
+  <div class="mt-4 mb-2" style="font-size: 0.9em;">
+    <p class="text-center">
+      &copy; 2018 TerminalCursor |
+      A Site Made By Free Open Source Software!
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

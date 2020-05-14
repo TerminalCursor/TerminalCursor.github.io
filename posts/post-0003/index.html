@@ -82,77 +82,92 @@
 
       <main>
         
-<div class="d-flex flex-row flex-wrap justify-content-around">
-  <div class="mt-4 home-flex-item" style="width: calc(35% - 20px); min-width: 250px;">
-    <img class="w-100 rounded mb-2" src="/images/main.jpeg" />
-<div class="d-flex justify-content-center mt-2">
+<article class="border rounded p-3 position-relative" style="margin-top: 2.5em;">
+  <div class="header">
+    <h1 style="font-size: 2.5em;">
+      Post 0003 - Biophysics
+    </h1>
+    <div
+    class="mb-1 mr-3 pl-1 pr-1 rounded bg-dark"
+    style="position: absolute; top: -19px; font-size: 0.9em;"
+  >
+    <time>2020-05-14</time>    
+    <span
+      class="more"
+      style="font-size: 1.5em;"
+      title="Show Metadata"
+      onclick="showMetadata(this)"
+    >
+      &#43;
+    </span>
+  </div><div class="m-2 metadata overflow-hidden" style="max-height: 0px;">
   
-  <div class="ml-1 mr-1" style="width: 40px; height: 40px;">
-    <a href="https://github.com/TerminalCursor">
-      <i class="social-icon fab fa-github"></i>
-    </a>
-  </div>
-  
-  <div class="ml-1 mr-1" style="width: 40px; height: 40px;">
-    <a href="TerminalCursor.github.io/uncertainty.html">
-      <i class="social-icon fab fa-stack-overflow"></i>
-    </a>
-  </div>
-  
-</div>
-
-  </div>
-
-  <div class="home-flex-item mt-4" style="width: calc(65% - 20px);">
-    <div class="position-relative border rounded p-2" style="margin-bottom: 40px;">
-      <h4
-  class="pl-2 pr-2 bg-dark rounded border"
-  style="position: absolute; top: -1rem; right: 0.5em;"
->
-  <b>About</b>
-</h4>
-<h1>I am Terminal Cursor.</h1>
-<p>Welcome to my website, at the moment it is under construction, feel free to take a peek around.</p>
-
+  <div class="metadata-value mb-1 taxa taxa-container-div list-sections">
+    <div>
+      Reading Time: 
+1 min
+      
     </div>
-    <div class="home-flex-item position-relative p-2 border rounded text-center">
-      <h4
-  class="pl-2 pr-2 bg-dark rounded border"
-  style="position: absolute; top: -0.7em; left: 0.5em;"
->
-  <b>Recent</b>
-</h4>
-
-<div class="pt-2">
-  
-  <a class="ml-1 list-entry-link text-uppercase" href="http://TerminalCursor.github.io/posts/post-0003/">
-    Post 0003 - Biophysics
-  </a>
-  <p class="ml-2 mb-1"></p>
-  
-  <a class="ml-1 list-entry-link text-uppercase" href="http://TerminalCursor.github.io/projects/nasm/disk/project_overview/">
-    ASM Disk Project Overview
-  </a>
-  <p class="ml-2 mb-1"></p>
-  
-  <a class="ml-1 list-entry-link text-uppercase" href="http://TerminalCursor.github.io/posts/post-0002/">
-    Post 0002 - Physics Stuff
-  </a>
-  <p class="ml-2 mb-1"></p>
-  
-  <a class="ml-1 list-entry-link text-uppercase" href="http://TerminalCursor.github.io/posts/post-0001/">
-    Post 0001 - TempleOS
-  </a>
-  <p class="ml-2 mb-1"></p>
-  
-  <p class="text-right m-0">
-    <a href="/archive/">See All</a>
-  </p>
-</div>
-
+    <div>
+      Section:
+      <a
+        class="pl-1 pr-1 rounded border border-secondary"
+        href="/posts"
+        title="Section"
+      >Posts</a>
     </div>
   </div>
+  
+
+  
+  
+  
+  
+  
+  
 </div>
+</div>
+  <div class="article pb-3 pt-3 border-bottom border-top">
+    
+    <h1 id="biophysics-stuff">Biophysics Stuff</h1>
+<h2 id="cxfel-resources">CXFEL Resources</h2>
+<h2 id="coarse-grain-modeling-for-dna-structures-oxdna">Coarse-Grain modeling for DNA structures (oxDNA)</h2>
+<ul>
+<li><a href="https://dna.physics.ox.ac.uk/index.php/Main_Page/">Main Page</a></li>
+<li><a href="https://arxiv.org/abs/2004.05052">ArXiV</a></li>
+<li><a href="https://www.youtube.com/watch?v=nkKSbeOm0N8">Video</a></li>
+</ul>
+
+  </div>
+  <div class="mt-4 d-flex flex-row justify-content-around">
+  <div><i class="text-secondary fas fa-chevron-circle-left" style="font-size: 2em;"></i></div>
+  <div>
+    <a
+      href="/posts/post-0002/"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Post 0002 - Physics Stuff"
+      ><i class="fas fa-chevron-circle-right" style="font-size: 2em;"></i></a
+    >
+  </div>
+</div>
+
+</article>
+<script>
+  let showMetadata = function(x) {
+    let elem = x.parentNode.nextElementSibling;
+    if (window.getComputedStyle(elem)["height"] === "0px") {
+      elem.style.maxHeight = elem.scrollHeight + "px";
+      x.innerHTML = "&times;";
+      x.title = "Hide Metadata";
+    } else {
+      elem.style.maxHeight = "0px";
+      x.innerHTML = "&#43;";
+      x.title = "Show Metadata";
+    }
+  };
+</script>
+
 
       </main>
     </div>

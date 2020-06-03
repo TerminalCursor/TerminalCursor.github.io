@@ -37,7 +37,7 @@ section .data NL db 0x0A section .bss fileData resb 201 section .text global _st
       <pubDate>Thu, 07 May 2020 11:51:17 -0700</pubDate>
       
       <guid>http://TerminalCursor.github.io/posts/post-0002/</guid>
-      <description>Physics Stuff Things to read up on  Lattice QCD Convolutional Neural Networks - Fluid Dynamics  </description>
+      <description>Physics Stuff Things to read up on  Lattice QCD Convolutional Neural Networks - Fluid Dynamics Introduction to Lattice QCD Machine learning action parameters in lattice quantum chromodynamics Halting Problem For Quantum Computers  </description>
     </item>
     
     <item>
@@ -55,7 +55,7 @@ section .data NL db 0x0A section .bss fileData resb 201 section .text global _st
       <pubDate>Sat, 02 May 2020 18:50:57 -0700</pubDate>
       
       <guid>http://TerminalCursor.github.io/posts/post-0000/</guid>
-      <description>This post will serve as a post to keep track of various links I find useful Programming Related  Build Your Own X Blog  Operating System Reated Customization/ Software  Cat V Minimalism Suckless Gentoo Wiki Ricing/Customization Raspberry Pi Color Schemes  Development  OS Dev Forum Operating System Tutorial 0xAX Assembly Interrupt Table Syscall Table x64 Linux NASM Reference NASM Material 1 NASM Material 2  Computer Security  Hacker 101 PWKOSCP Prep Blog Cryptopals ECCouncil: CEH  Other  Overleaf  </description>
+      <description>This post will serve as a post to keep track of various links I find useful Programming Related  Build Your Own X Blog  Operating System Reated Customization/ Software  Cat V Minimalism Suckless Gentoo Wiki Ricing/Customization Raspberry Pi Color Schemes Plan 9 POSIX Compliant Programs  Development  OS Dev Forum Operating System Tutorial 0xAX Assembly Interrupt Table Syscall Table x64 Linux NASM Reference NASM Material 1 NASM Material 2  Computer Security  Hacker 101 PWKOSCP Prep Blog Cryptopals ECCouncil: CEH  Other  Overleaf  </description>
     </item>
     
   </channel>

@@ -1,0 +1,4 @@
+#!/bin/sh
+python3 posts.py ../psts > ../frag/posts
+python3 links.py ../lnx > ../frag/links
+cat ../frag/index_head ../frag/posts ../frag/index_mid ../frag/links ../frag/index_foot > ../frag/index.html

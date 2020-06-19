@@ -1,55 +1,3 @@
-<!DOCTYPE>
-<HTML>
-	<head>
-		<title>FOSS Website</title>
-		<link rel="stylesheet" type="text/css" href="basicstyle.css" media="screen" />
-	</head>
-	<body class="layer0">
-		<div class="slice sansserif layer1">
-			<h1>TerminalCursor's Website</h1>
-				<h2><a href="https://github.com/TerminalCursor">My GitHub</a></h1>
-				<h2><a href="./phys/error_propogation.html">My Error Propogation Calculator</a></h2>
-		</div>
-		<section class="container layer0">
-			<div class="lbox layer2">
-				<div class="subbox sansserif layer3">
-					<h2>Books</h2>
-					<ul>
-						<li>An Illustrated Theory of Numbers, Martin H. Weissman</li>
-						<li>Linear Algebra with Applications, Ninth Edition, Steven J. Leon</li>
-						<li>University Physics with Modern Physics, 14th Edition, Young and Freedman</li>
-					</ul>
-				</div>
-				<div class="subbox sansserif layer3">
-					<h2>Top 5 most recent posts:</h2>
-					<div class="subbox sansserif layer4">
-						<h2>Fifth Actual Post</h2>
-						This is an acutal post
-					</div>
-					<div class="subbox sansserif layer4">
-						<h2>Fourth Actual Post</h2>
-						This is an acutal post
-					</div>
-					<div class="subbox sansserif layer4">
-						<h2>Third Actual Post</h2>
-						This is an acutal post
-					</div>
-					<div class="subbox sansserif layer4">
-						<h2>Second Actual Post</h2>
-						This is an acutal post
-					</div>
-					<div class="subbox sansserif layer4">
-						<h2>First Actual Post</h2>
-						This is an acutal post
-					</div>
-
-				</div>
-			</div>
-			<div class="mbox layer0">
-			</div>
-			<div class="rbox layer2">
-				<div class="box sansserif layer2">
-					<h2>Links</h2>
 					<div class="subbox sansserif layer3">
 						<h3>Biophysics</h3>
 						<ul>
@@ -168,8 +116,3 @@
 						</ul>
 					</div>
 
-				</div>
-			</div>
-		</section>
-	</body>
-</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+	<channel>
+		<title>TerminalCursor's RSS Feed</title>
+		<link>https://TerminalCursor.github.io</link>
+		<description>My RSS Feed</description>
+		<item>
+			<title>Introduction</title>
+			<link>https://TerminalCursor.github.io/dne/0000</link>
+			<description>Welcome to my website. It is in progress at the moment, and I am not sure if I am going to stick with the current color scheme.</description>
+		</item>
+	</channel>
+
+</rss>

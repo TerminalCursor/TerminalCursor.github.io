@@ -1,170 +1,164 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-  <title>FOSS Website</title>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <meta name="description" content="Here is a description" />
-  <meta name="author" content="Terminal Cursor" />
-  <meta name="generator" content="mero theme by Darshan in Hugo 0.72.0" />
-
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-  />
-  <link
-    href="https://fonts.googleapis.com/css?family=Overlock|Roboto+Mono&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="/css/mero.css" />
-
-  <script src="/js/mero.js"></script>
-</head>
-
-  <body class="bg-dark text-white m-auto" style="width:95%; max-width: 1024px;">
-    <div class="wrapper">
-      <nav class="mb-3 mt-3 ml-1">
-  <div class="d-flex flex-row">
-    <div
-      class="menu-item border border-warning bg-dark p-2"
-      style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;"
-    >
-      <a href="/"><span>Home</span> </a>
-    </div>
-    <div class="menu-item dropdown border border-warning bg-dark p-2">
-      <span class="dropbtn text-warning" onclick="toggleMenu(this)"
-        >Sections <i class="fas fa-angle-down"></i
-      ></span>
-      <div
-        class="dropdown-content p-2 bg-dark2 mt-2 rounded w-auto mt-1 d-none"
-        style="min-width: 200px;"
-      >
-        <ul class="list-unstyled">
-          
-          
-          
-          <li class="pt-2">
-            <a href="http://TerminalCursor.github.io/posts/">Posts</a>
-          </li>
-          
-          
-          
-          
-          <li class="pt-2">
-            <a href="http://TerminalCursor.github.io/projects/">Projects</a>
-          </li>
-          
-          
-        </ul>
-      </div>
-    </div>
-    <div class="menu-item border border-warning bg-dark p-2">
-      <a
-        href="/alltaxa/"
-        ><span>Taxa</span>
-      </a>
-    </div>
-    <div class="menu-item border border-warning bg-dark p-2"
-    style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
-      <a
-        href="/archive/"
-        ><span>Archive</span>
-      </a>
-    </div>
-  </div>
-</nav>
-
-      <main>
-        
-<div class="d-flex flex-row flex-wrap justify-content-around">
-  <div class="mt-4 home-flex-item" style="width: calc(35% - 20px); min-width: 250px;">
-    <img class="w-100 rounded mb-2" src="/images/main.jpeg" />
-<div class="d-flex justify-content-center mt-2">
-  
-  <div class="ml-1 mr-1" style="width: 40px; height: 40px;">
-    <a href="https://github.com/TerminalCursor">
-      <i class="social-icon fab fa-github"></i>
-    </a>
-  </div>
-  
-  <div class="ml-1 mr-1" style="width: 40px; height: 40px;">
-    <a href="TerminalCursor.github.io/uncertainty.html">
-      <i class="social-icon fab fa-stack-overflow"></i>
-    </a>
-  </div>
-  
-</div>
-
-  </div>
-
-  <div class="home-flex-item mt-4" style="width: calc(65% - 20px);">
-    <div class="position-relative border rounded p-2" style="margin-bottom: 40px;">
-      <h4
-  class="pl-2 pr-2 bg-dark rounded border"
-  style="position: absolute; top: -1rem; right: 0.5em;"
->
-  <b>About</b>
-</h4>
-<h1>I am Terminal Cursor.</h1>
-<p>Welcome to my website, at the moment it is under construction, feel free to take a peek around.</p>
-
-    </div>
-    <div class="home-flex-item position-relative p-2 border rounded text-center">
-      <h4
-  class="pl-2 pr-2 bg-dark rounded border"
-  style="position: absolute; top: -0.7em; left: 0.5em;"
->
-  <b>Recent</b>
-</h4>
-
-<div class="pt-2">
-  
-  <a class="ml-1 list-entry-link text-uppercase" href="http://TerminalCursor.github.io/posts/post-0003/">
-    Post 0003 - Biophysics
-  </a>
-  <p class="ml-2 mb-1"></p>
-  
-  <a class="ml-1 list-entry-link text-uppercase" href="http://TerminalCursor.github.io/projects/nasm/disk/project_overview/">
-    ASM Disk Project Overview
-  </a>
-  <p class="ml-2 mb-1"></p>
-  
-  <a class="ml-1 list-entry-link text-uppercase" href="http://TerminalCursor.github.io/posts/post-0002/">
-    Post 0002 - Misc Stuff
-  </a>
-  <p class="ml-2 mb-1"></p>
-  
-  <a class="ml-1 list-entry-link text-uppercase" href="http://TerminalCursor.github.io/posts/post-0001/">
-    Post 0001 - TempleOS
-  </a>
-  <p class="ml-2 mb-1"></p>
-  
-  <p class="text-right m-0">
-    <a href="/archive/">See All</a>
-  </p>
-</div>
-
-    </div>
-  </div>
-</div>
-
-      </main>
-    </div>
-    <footer>
-  <div class="w-50 bg-danger ml-auto mr-auto mt-4" style="height: 2px;"></div>
-  <div class="mt-4 mb-2" style="font-size: 0.9em;">
-    <p class="text-center">
-      &copy; 2018 TerminalCursor |
-      A Site Made By Free Open Source Software!
-    </p>
-  </div>
-</footer>
-
-  </body>
+<!DOCTYPE>
+<HTML>
+	<head>
+		<title>FOSS Website</title>
+		<link rel="stylesheet" type="text/css" href="basicstyle.css" media="screen" />
+	</head>
+	<body class="layer0">
+		<div class="slice sansserif layer1">
+			<h1>TerminalCursor's Website</h1>
+				<h2><a href="https://github.com/TerminalCursor">My GitHub</a></h1>
+				<h2><a href="./phys/error_propogation.html">My Error Propogation Calculator</a></h2>
+		</div>
+		<section class="container layer0">
+			<div class="lbox layer2">
+				<div class="subbox sansserif layer3">
+					<h2>Books</h2>
+					<ul>
+						<li>An Illustrated Theory of Numbers, Martin H. Weissman</li>
+						<li>Linear Algebra with Applications, Ninth Edition, Steven J. Leon</li>
+						<li>University Physics with Modern Physics, 14th Edition</li>
+					</ul>
+				</div>
+				<div class="subbox sansserif layer3">
+					<h2>Top 5 most recent posts:</h2>
+					<div class="subbox sansserif layer4">
+						<h2>Introduction</h2>
+						Welcome to my website. It is in progress at the moment, and I am not sure if I am going to stick with the current color scheme.
+					</div>
+				</div>
+			</div>
+			<div class="mbox layer0">
+			</div>
+			<div class="rbox layer2">
+				<div class="box sansserif layer2">
+					<h2>Links</h2>
+					<div class="subbox sansserif layer3">
+						<h3>LaTeX</h3>
+						<ul>
+							<li><a href="https://overleaf.com">Overleaf</a></li>
+						</ul>
+					</div>
+					<div class="subbox sansserif layer3">
+						<h3>Biophysics</h3>
+						<ul>
+							<li><a href="https://ccsb.scripps.edu/cellpaint/">Cell Paint</a></li>
+						</ul>
+						<h4>CXFEL</h4>
+						<ul>
+							<li><a href="https://biodesign.asu.edu/cxfel">CXFEL Homepage</a></li>
+							<li><a href="https://www.youtube.com/watch?v=HLF2sv78fiQ">Video: About CXFEL</a></li>
+							<li><a href="https://physics.asu.edu/content/william-graves">William Graves' ASU Profile</a></li>
+						</ul>
+						<h4>Coarse-Grain Modeling for DNA Structures</h4>
+						<ul>
+							<li><a href="https://dna.physics.ox.ac.uk/index.php/Main_Page">oxDNA: Main Page</a></li>
+							<li><a href="https://github.com/sulcgroup/oxdna-viewer">oxDNA viewer (Petr Sulc)</a></li>
+							<li><a href="https://arxiv.org/abs/2004.05052">arXiv: The oxDNA coarse-grained model as a tool to simulate DNA origami</a></li>
+							<li><a href="https://arxiv.org/abs/1207.3391">arXiv: Sequence-dependent Thermodynamics of a Coarse-Grained DNA Model</a></li>
+							<li><a href="https://www.biorxiv.org/content/10.1101/2020.01.24.917419v1">bioXiv: Design, optimization, and analysis of large DNA and RNA nanostructures through interactive visualization, editing, and molecular simulation</a></li>
+							<li><a href="https://science.sciencemag.org/content/321/5890/824">Science: Programming DNA Tube Circumfrences</a></li>
+							<li><a href="https://www.youtube.com/watch?v=0lcRULkqirg">Talk: In-silico design, visualization, and analysis of large DNA and RNA nanostructures</a></li>
+							<li><a href="https://www.youtube.com/watch?v=nkKSbeOm0N8">Video: Render photo-realistic images of oxDNA structures using Blender</a></li>
+							<li><a href="https://www.youtube.com/watch?v=Ek-FDPymyyg">Video: Nanofabrication via DNA Origami</a></li>
+							<li><a href="http://hariadilab.mystrikingly.com/">Lab Website: Bioman Labs</a></li>
+							<li><a href="https://www.public.asu.edu/~psulc/index.html">Lab Website: Petr Sulc</a></li>
+						</ul>
+					</div>
+					<div class="subbox sansserif layer3">
+						<h3>Physics</h3>
+						<ul>
+							<li><a href="https://arxiv.org/abs/hep-lat/9807028">arXiv: Introductuion to Lattice QCD</a></li>
+							<li><a href="https://arxiv.org/abs/2005.02599">arXiv: Convolutional Neural Networks - Fluid Dynamics</a></li>
+							<li><a href="https://arxiv.org/abs/1801.05784">arXiv: Machine learning action parameters in lattice quantum chromodynamics</a></li>
+							<li><a href="https://arxiv.org/pdf/quant-ph/9806054.pdf">Halting Problem for Quantum Computers</a></li>
+						</ul>
+						</div>
+					<div class="subbox sansserif layer3">
+						<h3>Simulations</h3>
+						<ul>
+							<li><a href=""></a></li>
+						</ul>
+					</div>
+					<div class="subbox sansserif layer3">
+						<h3>Programming</h3>
+						<ul>
+							<li><a href="https://github.com/danistefanovic/build-your-own-x/">Build Your Own X</a></li>
+						</ul>
+					</div>
+					<div class="subbox sansserif layer3">
+						<h3>Software</h3>
+						<ul>
+							<li><a href="https://9p.io/plan9/">Plan 9</a></li>
+							<li><a href="https://pubs.opengroup.org/onlinepubs/9699919799/idx/utilities.html">POSIX Compliant Utilities</a></li>
+							<li><a href="https://suckless.org/">Software that sucks less</a></li>
+							<li><a href="http://harmful.cat-v.org/software/">Cat-V harmful software</a></li>
+						</ul>
+					</div>
+					<div class="subbox sansserif layer3">
+						<h3>Desktop Customization</h3>
+						<ul>
+							<li><a href="https://wiki.gentoo.org/wiki/Main_Page">Gentoo Wiki</a></li>
+							<li><a href="https://wiki.gentoo.org/wiki/Raspberry_Pi/">Gentoo + Raspberry Pi</a></li>
+							<li><a href="https://github.com/mbadolato/iTerm2-Color-Schemes">Color Schemes</a></li>
+							<li><a href="https://rizonrice.github.io/resources">Misc Ricing Resources</a></li>
+							<li><a href="http://colorsafe.co/">Color Scheme Picker</a></li>
+							<li><a href="https://www.htmlcsscolor.com/hex/634631">HTML/CSS Color</a></li>
+							<li><a href="https://coolors.co/504746-fac94c-f9e9ec-00abf5-f88dad">Color Scheme Generator</a></li>
+						</ul>
+					</div>
+					<div class="subbox sansserif layer3">
+						<h3>Low Level Development</h3>
+						<ul>
+							<li><a href="https://github.com/0xAX/asm/">0xAX's x64 Assembly Tutorial</a></li>
+							<li><a href="https://filippo.io/linux-syscall-table/">Linux Syscall Table Reference</a></li>
+							<li><a href="https://www.nasm.us/xdoc/2.14.02/html/nasmdoc0.html">NASM Documentation</a></li>
+							<li><a href="https://cs.lmu.edu/~ray/notes/nasmtutorial/">NASM Tutorial</a></li>
+							<li><a href="https://asmtutor.com/">Assembly Tutorials</a></li>
+							<li><a href="https://www.grc.com/smgassembly.htm">GRC: Assembly</a></li>
+						</ul>
+					</div>
+					<div class="subbox sansserif layer3">
+						<h3>OS Development</h3>
+						<ul>
+							<li><a href="https://forum.osdev.org/">OSDev Forum</a></li>
+							<li><a href="https://github.com/cfenollosa/os-tutorial/">OS Development Tutorial</a></li>
+							<li><a href="http://www.ctyme.com/intr/int.htm">BIOS x64 Interrupt Table</a></li>
+						</ul>
+					</div>
+					<div class="subbox sansserif layer3">
+						<h3>Computer Security</h3>
+						<ul>
+							<li><a href="https://www.grc.com/haystack.htm">GRC: Password Haystacks</a></li>
+							<li><a href="https://www.hacker101.com/videos/">Hacker101</a></li>
+							<li><a href="https://www.abatchy.com/2017/03/how-to-prepare-for-pwkoscp-noob/">Preparation for PWKOSCP</a></li>
+							<li><a href="https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/">CEH</a></li>
+						</ul>
+					</div>
+					<div class="subbox sansserif layer3">
+						<h3>Cryptography</h3>
+						<ul>
+							<li><a href="https://cryptopals.com/">Cryptographic Challenges</a></li>
+						</ul>
+					</div>
+					<div class="subbox sansserif layer3">
+						<h3>TempleOS</h3>
+						<ul>
+							<li><a href="https://templeos.org/">Home Site</a></li>
+							<li><a href="https://templeos.holyc.xyz/Wb/Adam/Opt/Boot/BootDVD.html">DVD Boot</a></li>
+							<li><a href="https://templeos.holyc.xyz/Wb">Filesystem</a></li>
+							<li><a href="https://stackoverflow.com/questions/49886949/using-bios-int-13h-ah-42h-to-read-from-usb">Resource on Extended Reads</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
 </html>
+<!--
+	Merging from command line:
+	git merge master
+	git checkout master
+	git merge <branch>
+	git push
+-->

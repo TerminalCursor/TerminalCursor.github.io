@@ -1,0 +1,78 @@
+html, body {
+	margin: 0;
+	height: 100%;
+	font-size: 95%;
+	color: #FAC94C;
+}
+.slice {
+	padding: 2% 2% 2% 2%;
+	margin: 0% 0% 0.8% 0%;
+	font-size: 1-0%;
+	width: 96%; /*100 - (margin-left + padding-left) - (margin-right + padding-right)*/
+}
+.box {
+	padding: 1% 2% 1% 2%;
+	margin-left: 01%;
+	margin-right: 02%;
+	width: 94%; /* 100 - (margin-left + padding-left) - (margin-right + padding-right)*/
+	margin-bottom: 0.8%;
+}
+.container {
+	margin: 0 1% 0.8% 1%;
+	display: flex;
+}
+.lbox {
+	padding: 2%;
+	flex: 0 0 55%;
+}
+.mbox {
+	flex: 0 0 2%;
+}
+.rbox {
+	padding: 2%;
+	flex: 1;
+}
+.subbox {
+	background-color: #4A3424;
+	padding: 0.1% 2% 1% 2%;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
+	width: 95%; /* 100 - (margin-left + padding-left) - (margin-right + padding-right)*/
+	font-size: 100%;
+	margin-bottom: 0.8%;
+}
+a:link, a:hover, a:visited, a:active {
+	font-size: 100%;
+	text-decoration: none;
+}
+.serif {
+	font-family: "Times New Roman", Times, serif;
+}
+.sansserif {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.monospace {
+	font-family: "Lucida Console", Courier, monospace;
+}
+/*display: inline-block,inline,block;*/
+.layer0 {
+	background-color: #37302F;
+}
+.layer1 {
+	background-color: #504746;
+}
+.layer2 {
+	background-color: #625755;
+}
+.layer3 {
+	background-color: #4C4342;
+}
+.layer4 {
+	background-color: #413A39;
+}
+a:link, a:hover, a:visited, a:active {
+	color: #00ABF5;
+}
+a:hover {
+	color: #0AB6FF;
+}

@@ -1,0 +1,58 @@
+#!/bin/sh
+
+RSS_DATA=""
+POST_DATA=""
+FILE_DATA=""
+LAST_5=""
+LAST_4=""
+LAST_3=""
+LAST_2=""
+LAST_1=""
+for file in fragments/*.html; do
+	# Get the Post Number
+	POST=$(basename $file)
+	POST_N=${POST%\.*}
+	# Format the RSS file to <item><title><link><description></item>
+	#\n\t\t<pubdate>$(date +"%a, %d %b %Y %I:%M:%S %:::z")</pubdate>
+	INNER_RSS=$(sed 's/h2/title/g' fragments/${POST} | sed 's/^\([^<].*\)$/\t\t<description>\1<\/description>/g')
+	INNER_RSS="\t\t<item>\n${INNER_RSS}\n\t\t<link>https://TerminalCursor.github.io/posts/${POST}</link>\n\t\t</item>"
+	RSS_DATA="${INNER_RSS}\n${RSS_DATA}"
+	printf "${INNER_RSS}" > rss/${POST_N}.rss
+	# Make a separate post page with the post contents
+	SUBSTR="<!-- POST DATA HERE -->"
+	sed -e "/$SUBSTR/r fragments/${POST}" -e "/$SUBSTR/d" skeletons/post > posts/${POST}
+	# Make a master post file
+	FILE_DATA=$(cat $file)
+	FILE_DATA=$(printf "${FILE_DATA}" | sed "s/<h2>/<h2><a href=\"https:\/\/TerminalCursor.github.io\/posts\/${POST_N}.html\">/")
+	FILE_DATA=$(printf "${FILE_DATA}" | sed "s/<\/h2>/<\/a><\/h2>/")
+	POST_DATA="<div class=\"subbox sanserif layer4\">\n${FILE_DATA}\n</div>\n${POST_DATA}"
+	# Get the last five
+	LAST_5="${LAST_4}"
+	LAST_4="${LAST_3}"
+	LAST_3="${LAST_2}"
+	LAST_2="${LAST_1}"
+	LAST_1="<div class=\"subbox sansserif layer4\">\n${FILE_DATA}\n</div>\n"
+done
+# Write the RSS feed
+SUBSTR="<!-- RSS DATA HERE -->"
+printf "${RSS_DATA}\n" > temp
+sed -e "/$SUBSTR/r temp" -e "/$SUBSTR/d" skeletons/rss > rss.xml
+# Write the Post file
+SUBSTR="<!-- POST DATA HERE -->"
+printf "${POST_DATA}\n" > temp
+sed -e "/$SUBSTR/r temp" -e "/$SUBSTR/d" skeletons/posts > posts/index.html
+# Write posts to home page
+TOP_FIVE="${LAST_1}\n${LAST_2}\n${LAST_3}\n${LAST_4}\n${LAST_5}\n"
+SUBSTR="<!-- TOP FIVE POSTS -->"
+printf "${TOP_FIVE}" > temp
+sed -e "/$SUBSTR/r temp" -e "/$SUBSTR/d" skeletons/index > posts/idx.part
+# Write links to home page
+SUBSTR="<!-- LINKS -->"
+LINKS=""
+for file in links/*.lnk; do
+	LINKS="${LINKS}\n<div class=\"subbox sansserif layer3\">\n$(cat $file)\n</div>"
+done
+printf "${LINKS}" > temp
+sed -e "/$SUBSTR/r temp" -e "/$SUBSTR/d" posts/idx.part > index.html
+rm temp
+rm posts/idx.part

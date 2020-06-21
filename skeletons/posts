@@ -9,11 +9,9 @@
 			<h1>TerminalCursor's Website</h1>
 				<h2><a href="https://github.com/TerminalCursor">My GitHub</a></h1>
 		</div>
-		<section class="container layer0">
-			<div class="box layer2">
-<h2>Introduction</h2>
-Welcome to my website. It is in progress at the moment, and I am not sure if I am going to stick with the current color scheme.
-			</div>
+		<section class="box layer3">
+		<h1>Posts</h1>
+			<!-- POST DATA HERE -->
 		</section>
 	</body>
 </HTML>

@@ -25,7 +25,7 @@ for file in fragments/*.html; do
 	FILE_DATA=$(cat $file)
 	FILE_DATA=$(printf "${FILE_DATA}" | sed "s/<h2>/<h2><a href=\"https:\/\/TerminalCursor.github.io\/posts\/${POST_N}.html\">/")
 	FILE_DATA=$(printf "${FILE_DATA}" | sed "s/<\/h2>/<\/a><\/h2>/")
-	POST_DATA="<div class=\"subbox sanserif layer4\">\n${FILE_DATA}\n</div>\n${POST_DATA}"
+	POST_DATA="<div class=\"subbox sansserif layer4\">\n${FILE_DATA}\n</div>\n${POST_DATA}"
 	# Get the last five
 	LAST_5="${LAST_4}"
 	LAST_4="${LAST_3}"

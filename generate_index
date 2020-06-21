@@ -17,7 +17,7 @@ for file in fragments/*.html; do
 	INNER_RSS=$(sed 's/h2/title/g' fragments/${POST} | sed 's/^\([^<].*\)$/\t\t<description>\1<\/description>/g')
 	INNER_RSS="\t\t<item>\n${INNER_RSS}\n\t\t<link>https://TerminalCursor.github.io/posts/${POST}</link>\n\t\t</item>"
 	RSS_DATA="${INNER_RSS}\n${RSS_DATA}"
-	printf "${INNER_RSS}" > rss/${POST_N}.rss
+	#printf "${INNER_RSS}" > rss/${POST_N}.rss
 	# Make a separate post page with the post contents
 	SUBSTR="<!-- POST DATA HERE -->"
 	sed -e "/$SUBSTR/r fragments/${POST}" -e "/$SUBSTR/d" skeletons/post > posts/${POST}

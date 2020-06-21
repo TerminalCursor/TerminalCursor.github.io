@@ -21,7 +21,7 @@
 					</ul>
 				</div>
 				<div class="subbox sansserif layer3">
-					<h2>Top 5 most recent posts:</h2>
+					<h2>Top 5 most recent <a href="./posts/">posts</a>:</h2>
 					<!-- TOP FIVE POSTS -->
 				</div>
 			</div>

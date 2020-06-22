@@ -1,7 +1,24 @@
-<h3>Physics</h3>
-<ul>
-	<li><a href="https://arxiv.org/abs/hep-lat/9807028">arXiv: Introductuion to Lattice QCD</a></li>
-	<li><a href="https://arxiv.org/abs/2005.02599">arXiv: Convolutional Neural Networks - Fluid Dynamics</a></li>
-	<li><a href="https://arxiv.org/abs/1801.05784">arXiv: Machine learning action parameters in lattice quantum chromodynamics</a></li>
-	<li><a href="https://arxiv.org/pdf/quant-ph/9806054.pdf">Halting Problem for Quantum Computers</a></li>
-</ul>
+ <h3>Biophysics</h3>
+ <ul>
+ 	<li><a href="https://ccsb.scripps.edu/cellpaint/">Cell Paint</a></li>
+ </ul>
+ <h4>Coarse-Grain Modeling for DNA Structures</h4>
+ <ul>
+ 	<li><a href="https://dna.physics.ox.ac.uk/index.php/Main_Page">oxDNA: Main Page</a></li>
+ 	<li><a href="https://github.com/sulcgroup/oxdna-viewer">oxDNA viewer (Petr Sulc)</a></li>
+ 	<li><a href="https://arxiv.org/abs/2004.05052">arXiv: The oxDNA coarse-grained model as a tool to simulate DNA origami</a></li>
+ 	<li><a href="https://arxiv.org/abs/1207.3391">arXiv: Sequence-dependent Thermodynamics of a Coarse-Grained DNA Model</a></li>
+ 	<li><a href="https://www.biorxiv.org/content/10.1101/2020.01.24.917419v1">bioXiv: Design, optimization, and analysis of large DNA and RNA nanostructures through interactive visualization, editing, and molecular simulation</a></li>
+ 	<li><a href="https://science.sciencemag.org/content/321/5890/824">Science: Programming DNA Tube Circumfrences</a></li>
+ 	<li><a href="https://www.youtube.com/watch?v=0lcRULkqirg">Talk: In-silico design, visualization, and analysis of large DNA and RNA nanostructures</a></li>
+ 	<li><a href="https://www.youtube.com/watch?v=nkKSbeOm0N8">Video: Render photo-realistic images of oxDNA structures using Blender</a></li>
+ 	<li><a href="https://www.youtube.com/watch?v=Ek-FDPymyyg">Video: Nanofabrication via DNA Origami</a></li>
+ 	<li><a href="http://hariadilab.mystrikingly.com/">Lab Website: Bioman Labs</a></li>
+ 	<li><a href="https://www.public.asu.edu/~psulc/index.html">Lab Website: Petr Sulc</a></li>
+ </ul>
+ <h4>CXFEL</h4>
+ <ul>
+ 	<li><a href="https://biodesign.asu.edu/cxfel">CXFEL Homepage</a></li>
+ 	<li><a href="https://www.youtube.com/watch?v=HLF2sv78fiQ">Video: About CXFEL</a></li>
+ 	<li><a href="https://physics.asu.edu/content/william-graves">William Graves' ASU Profile</a></li>
+ </ul>

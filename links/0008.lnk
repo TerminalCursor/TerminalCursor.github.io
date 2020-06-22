@@ -1,7 +1,0 @@
-<h3>OS Development</h3>
-<ul>
-	<li><a href="https://forum.osdev.org/">OSDev Forum</a></li>
-	<li><a href="https://github.com/cfenollosa/os-tutorial/">OS Development Tutorial</a></li>
-	<li><a href="http://www.ctyme.com/intr/int.htm">BIOS x64 Interrupt Table</a></li>
-	<li><a href="https://github.com/wichtounet/thor-os">Thor OS - C++ Operating System</a></li>
-</ul>

@@ -16,7 +16,7 @@ for file in fragments/*.html; do
 
 	# Make a master post file
 	FILE_DATA=$(cat $file)
-	FILE_DATA=$(printf "${FILE_DATA}" | sed "s/<h2>/<h2><a href=\"https:\/\/TerminalCursor.github.io\/posts\/${POST_N}.html\">/")
+	FILE_DATA=$(printf "${FILE_DATA}" | sed "s/<h2>/<h2><a href=\"https:\/\/TerminalCursor.github.io\/posts#post-${POST_N}\">/")
 	FILE_DATA=$(printf "${FILE_DATA}" | sed "s/<\/h2>/<\/a><\/h2>/")
 	POST_DATA="<div class=\"box layer3\" id=\"post-${POST_N}\">\n${FILE_DATA}\n</div>\n${POST_DATA}"
 done

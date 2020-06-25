@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Posts</title>
-        <link rel="stylesheet" type="text/css" href="basicstyle.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/basicstyle.css" media="screen" />
     </head>
     <body class="layer0 sansserif">
         <div class="header slice layer1">

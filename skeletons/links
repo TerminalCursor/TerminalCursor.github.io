@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
     <head>
-        <title>Posts</title>
+        <title>Links</title>
         <link rel="stylesheet" type="text/css" href="basicstyle.css" media="screen" />
     </head>
     <body class="layer0 sansserif">
@@ -10,8 +10,8 @@
         </div>
         <div class="spacer layer0"></div>
         <div class="content slice layer1">
-            <h1>Posts</h1>
-            <!-- POST DATA HERE -->
+            <h1>Links</h1>
+            <!-- LINKS -->
         </div>
         <div class="footer slice layer1">
             <span class="box layer2"><a href="/">Home</a></span>

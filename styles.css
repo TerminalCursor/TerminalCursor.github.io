@@ -1,4 +1,5 @@
 body {
+    color: #5C6670;
     font-family: "Arial", Helvetica, sans-serif;
     padding: 0;
     margin: 0;
@@ -14,11 +15,13 @@ ul {
 
 li a {
     color: rgb(55, 175, 175);
+    color: #00A3E0;
     text-decoration: none;
 }
 
 li a:hover {
     color: rgb(200, 80, 80);
+    color: #FF7F32;
     text-decoration: none;
 }
 
@@ -28,6 +31,7 @@ div#navbar ul {
     padding: 0;
     overflow: hidden;
     background-color: #EEE;
+    background-color: #8C1D40;
 }
 
 div#navbar ul li {
@@ -36,7 +40,7 @@ div#navbar ul li {
 
 div#navbar ul li a {
     display: block;
-    color: #555;
+    color: #111;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -44,13 +48,15 @@ div#navbar ul li a {
 
 div#navbar ul li a:hover:not(.active) {
     background-color: #BBB;
+    background-color: #FF7F32;
 }
 
 .active {
-    background-color: #4CA;
+    background-color: #FFC627;
 }
 
 h1, h2, h3, h4, h5, h6 {
+    color: black;
     padding: 0;
     margin: 0;
 }

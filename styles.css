@@ -37,7 +37,7 @@ div#navbar ul li {
 
 div#navbar ul li a {
     display: block;
-    color: #111;
+    color: #fff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -47,7 +47,8 @@ div#navbar ul li a:hover:not(.active) {
     background-color: #7E0F32;
 }
 
-.active {
+div#navbar ul li a.active {
+    color: #8C1D40;
     background-color: #FFC627;
 }
 

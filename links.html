@@ -9,7 +9,14 @@
       <div id="navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a class="active" href="links.html">Links</a></li>
+          <li>
+            <a class="active" href="links.html">Links</a>
+            <div class="dropdown-content">
+              <a href="#phys-links">Physics</a>
+              <a href="#comp-links">Computer Science</a>
+              <a href="#misc-links">Miscellany</a>
+            </div>
+          </li>
           <li><a href="posts.html">Posts</a></li>
           <li><a href="books.html">Books</a></li>
           <li style="float: right"><a href="about.html">About</a></li>
@@ -19,7 +26,7 @@
       </div>
       <hr />
       <div class="contents">
-        <h1>Physics</h1>
+        <h1 id="phys-links">Physics</h1>
         <h2>Quantum Computing</h2>
         <ul>
           <li><a href="https://github.com/Qiskit/qiskit">IBM Quantum Compting QISKIT</a></li>
@@ -63,7 +70,7 @@
           <li><a href="https://www.public.asu.edu/~psulc/myimages/chapter.pdf">Introduction to molecular simulation</a></li>
         </ul>
         <hr style="margin-top: 4px;margin-bottom: 4px" />
-        <h1>Computer Science</h1>
+        <h1 id="comp-links">Computer Science</h1>
         <h2>Programming</h2>
         <ul>
           <li><a href="https://github.com/danistefanovic/build-your-own-x/">Build Your Own X</a></li>
@@ -131,7 +138,7 @@
           <li><a href="https://stackoverflow.com/questions/49886949/using-bios-int-13h-ah-42h-to-read-from-usb">Resource on Extended Reads</a></li>
         </ul>
         <hr style="margin-top: 4px;margin-bottom: 4px" />
-        <h1>Miscellany</h1>
+        <h1 id="misc-links">Miscellany</h1>
         <h2>SARS CoV 2</h2>
         <ul>
           <li><a href="https://www.cell.com/cell/fulltext/S0092-8674(20)30610-3">Light at the end of the tunnel</a></li>

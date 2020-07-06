@@ -70,14 +70,15 @@ h3 {
 .contents {
     margin: 8px;
     padding: 8px;
-    border: solid 1px black;
+    border: solid 0px black;
     border-radius: 15px;
 }
 
 .post {
     margin: 8px;
     padding: 8px;
-    border: solid 1px black;
+    border: solid 0px black;
+    border-top: solid 1px black;
 }
 
 hr {

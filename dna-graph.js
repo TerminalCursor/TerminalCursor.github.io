@@ -76,6 +76,15 @@ class Edge {
         this.k = 10;
     }
 
+    setParams(relaxed, k) {
+        if(relaxed != undefined) {
+            this.relaxed = relaxed;
+        }
+        if(k != undefined) {
+            this.k = k;
+        }
+    }
+
     length() {
         let line = getLine(this);
         let length = Math.sqrt(Math.pow(line[1][0] - line[0][0], 2) + Math.pow(line[1][1] - line[0][1], 2));
@@ -123,6 +132,15 @@ class GEdge {
         this.nodes = arguments;
         this.relaxed = 30;
         this.k = 2;
+    }
+
+    setParams(relaxed, k) {
+        if(relaxed != undefined) {
+            this.relaxed = relaxed;
+        }
+        if(k != undefined) {
+            this.k = k;
+        }
     }
 
     length() {

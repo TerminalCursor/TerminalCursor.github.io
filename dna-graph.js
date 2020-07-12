@@ -62,10 +62,14 @@ let getLine = function(edge) {
 }
 
 class Node {
-    constructor(pos, vel) {
+    constructor(pos, vel, id) {
         this.pos = pos;
         this.vel = vel;
         this.color = 'blue';
+        this.id = -1;
+        if(id != undefined) {
+            this.id = id;
+        }
     }
 }
 
@@ -229,7 +233,7 @@ let importNEG = function() {
     for(let subn = 0; subn < pos_matrix.length; subn++) {
         let pos = pos_matrix[subn];
         let vel = vel_matrix[subn];
-        nodes.push(new Node([pos[0] * 100, pos[1] * 100, pos[2] * 100], vel));
+        nodes.push(new Node([pos[0] * 100, pos[1] * 100, pos[2] * 100], vel, subn));
     }
     /* Edges */
     for(let i = 0; i < adjacency_matrix.length; i++) {

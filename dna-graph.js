@@ -209,9 +209,9 @@ for(let i = 0; i < adjacency_matrix.length; i++) {
     }
 }
 
-let TIMESTEP = 100;
+let TIMESTEP = 1000;
 let MAX = 300;
-let DT = 0.07;
+let DT = 0.01;
 let FRICTION = 0.8;
 let MOVE = true;
 let moveTimer = setInterval(() => {

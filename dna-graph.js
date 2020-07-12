@@ -1,3 +1,4 @@
+let EXTRA_REPULSE_FORCE = 7.5;
 let currentNode = undefined;
 let moveTarg = false;
 var canvas = document.getElementById('webGLCanvas');
@@ -52,6 +53,7 @@ class Node {
     constructor(pos, vel) {
         this.pos = pos;
         this.vel = vel;
+        this.color = 'blue';
     }
 }
 
@@ -140,7 +142,7 @@ class GEdge {
     forceArrowN1() {
         if(this.doForce()) {
             let rhat = this.rHat();
-            let forceMag = this.k * (this.length() - this.relaxed);
+            let forceMag = this.k * (this.length() - this.relaxed - EXTRA_REPULSE_FORCE);
             let forceArrow = [];
             for(let i = 0; i < rhat.length; i++) {
                 forceArrow.push(rhat[i] * forceMag);
@@ -154,7 +156,7 @@ class GEdge {
     forceArrowN2() {
         if(this.doForce()) {
             let rhat = this.rHat();
-            let forceMag = this.k * (this.length() - this.relaxed);
+            let forceMag = this.k * (this.length() - this.relaxed - EXTRA_REPULSE_FORCE);
             let forceArrow = [];
             for(let i = 0; i < rhat.length; i++) {
                 forceArrow.push(-rhat[i] * forceMag);
@@ -211,14 +213,14 @@ for(let i = 0; i < adjacency_matrix.length; i++) {
 
 let TIMESTEP = 10;
 let MAX = 300;
-let DT = 0.01;
+let DT = 0.05;
 let FRICTION = 0.8;
 let MOVE = true;
 let moveTimer = setInterval(() => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for(let noden = 0; noden < nodes.length; noden++) {
         let node = nodes[noden];
-        drawDot(ctx, node.pos, 'blue');
+        drawDot(ctx, node.pos, node.color);
     }
     for(let edgen = 0; edgen < edges.length; edgen++) {
         let edge = edges[edgen];
@@ -228,12 +230,18 @@ let moveTimer = setInterval(() => {
         for(let gedgen = 0; gedgen < gedges.length; gedgen++) {
             let gedge = gedges[gedgen];
             if(gedge.doForce()) {
+                gedge.nodes[0].color = 'orange';
+                gedge.nodes[1].color = 'orange';
                 for(let i = 0; i < gedge.forceArrowN1().length; i++) {
                     gedge.nodes[0].vel[i] += gedge.forceArrowN1()[i] * DT;
                     gedge.nodes[1].vel[i] += gedge.forceArrowN2()[i] * DT;
                     gedge.nodes[0].pos[i] += gedge.nodes[0].vel[i] * DT;
                     gedge.nodes[1].pos[i] += gedge.nodes[1].vel[i] * DT;
                 }
+            }
+            else if(gedge.nodes[0].color == 'orange' && gedge.nodes[1].color == 'orange') {
+                gedge.nodes[0].color = 'blue';
+                gedge.nodes[1].color = 'blue';
             }
         }
         for(let edgen = 0; edgen < edges.length; edgen++) {
@@ -303,4 +311,11 @@ canvas.onmouseup = function(event) {
     canvas.onmousemove = null;
     lastMouseX = null;
     lastMouseY = null;
+}
+
+document.onkeydown = function(event) {
+    console.log(event);
+    if(event.key == "p") {
+        MOVE = !MOVE;
+    }
 }

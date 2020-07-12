@@ -30,6 +30,18 @@ let pos_matrix = [
     [2,2,1],
     [1,2,1]
 ];
+/*
+let pos_matrix = [
+    [1,1,1],
+    [2,1,1],
+    [3,1,1],
+    [4,1,1],
+    [5,1,1],
+    [6,1,1],
+    [7,1,1],
+    [8,1,1]
+];
+*/
 
 let vel_matrix = [
     [0,0,0],
@@ -225,7 +237,9 @@ let MAX = 300;
 let DT = 0.05;
 let FRICTION = 0.8;
 let MOVE = true;
+let t = 0;
 let moveTimer = setInterval(() => {
+    t += DT;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for(let noden = 0; noden < nodes.length; noden++) {
         let node = nodes[noden];
@@ -260,8 +274,8 @@ let moveTimer = setInterval(() => {
                 edge.nodes[0].vel[i] *= FRICTION;
                 edge.nodes[1].vel[i] += edge.forceArrowN2()[i] * DT;
                 edge.nodes[1].vel[i] *= FRICTION;
-                edge.nodes[0].pos[i] += edge.nodes[0].vel[i] * DT;
-                edge.nodes[1].pos[i] += edge.nodes[1].vel[i] * DT;
+                edge.nodes[0].pos[i] += edge.nodes[0].vel[i] * DT + (Math.random() / 1000 / t); /* Random factor breaks the particles off a straight line */
+                edge.nodes[1].pos[i] += edge.nodes[1].vel[i] * DT + (Math.random() / 1000 / t);
             }
         }
     }

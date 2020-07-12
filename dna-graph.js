@@ -209,7 +209,7 @@ for(let i = 0; i < adjacency_matrix.length; i++) {
     }
 }
 
-let TIMESTEP = 1000;
+let TIMESTEP = 10;
 let MAX = 300;
 let DT = 0.01;
 let FRICTION = 0.8;

@@ -189,27 +189,36 @@ let drawLine = function(ctx, ends) {
 }
 
 let nodes = [];
-for(let subn = 0; subn < pos_matrix.length; subn++) {
-    let pos = pos_matrix[subn];
-    let vel = vel_matrix[subn];
-    nodes.push(new Node([pos[0] * 100, pos[1] * 100, pos[2] * 100], vel));
-}
 let edges = [];
-for(let i = 0; i < adjacency_matrix.length; i++) {
-    for(let j = 0; j < adjacency_matrix[0].length; j++) {
-        if(adjacency_matrix[i][j] == 1 && i > j) {
-            edges.push(new Edge(nodes[i], nodes[j]));
-        }
-    }
-}
 let gedges = [];
-for(let i = 0; i < adjacency_matrix.length; i++) {
-    for(let j = 0; j < adjacency_matrix[0].length; j++) {
-        if(i != j) {
-            gedges.push(new GEdge(nodes[i], nodes[j]));
+let importNEG = function() {
+    nodes = [];
+    edges = [];
+    gedges = [];
+    /* Nodes */
+    for(let subn = 0; subn < pos_matrix.length; subn++) {
+        let pos = pos_matrix[subn];
+        let vel = vel_matrix[subn];
+        nodes.push(new Node([pos[0] * 100, pos[1] * 100, pos[2] * 100], vel));
+    }
+    /* Edges */
+    for(let i = 0; i < adjacency_matrix.length; i++) {
+        for(let j = 0; j < adjacency_matrix[0].length; j++) {
+            if(adjacency_matrix[i][j] == 1 && i > j) {
+                edges.push(new Edge(nodes[i], nodes[j]));
+            }
+        }
+    }
+    /* Invisible Repulsive Springs 'GEdges' */
+    for(let i = 0; i < adjacency_matrix.length; i++) {
+        for(let j = 0; j < adjacency_matrix[0].length; j++) {
+            if(i != j) {
+                gedges.push(new GEdge(nodes[i], nodes[j]));
+            }
         }
     }
 }
+importNEG();
 
 let TIMESTEP = 10;
 let MAX = 300;
@@ -317,5 +326,8 @@ document.onkeydown = function(event) {
     console.log(event);
     if(event.key == "p") {
         MOVE = !MOVE;
+    }
+    else if(event.key == "r") {
+        importNEG();
     }
 }

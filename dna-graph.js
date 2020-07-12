@@ -211,10 +211,10 @@ for(let i = 0; i < adjacency_matrix.length; i++) {
 
 let TIMESTEP = 100;
 let MAX = 300;
+let DT = 0.01;
+let FRICTION = 0.8;
+let MOVE = true;
 let moveTimer = setInterval(() => {
-    let DT = 0.1;
-    let FRICTION = 0.8;
-    let MOVE = true;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for(let noden = 0; noden < nodes.length; noden++) {
         let node = nodes[noden];

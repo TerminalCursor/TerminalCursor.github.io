@@ -20,11 +20,11 @@ let camRightAxis = [SEP_CONST, 0, 0]; // Positive Right
 
 /* Register the canvas */
 var canvas = document.getElementById('webGLCanvas');
-canvas.width  = window.innerWidth - (canvas.offsetLeft * 2);
-canvas.height = window.innerHeight - (canvas.offsetTop + 20);
+canvas.width  = window.innerWidth - (canvas.offsetLeft * 2 + 2);
+canvas.height = window.innerHeight - (canvas.offsetTop + 20 + 2);
 window.onresize = function() {
-    canvas.width  = window.innerWidth - (canvas.offsetLeft * 2);
-    canvas.height = window.innerHeight - (canvas.offsetTop + 20);
+    canvas.width  = window.innerWidth - (canvas.offsetLeft * 2 + 2);
+    canvas.height = window.innerHeight - (canvas.offsetTop + 20 + 2);
 }
 var ctx = canvas.getContext('2d');
 
@@ -232,7 +232,7 @@ class GEdge {
 // Canvas method to draw nodes
 let drawDot = function(ctx, pos, color) {
     ctx.beginPath();
-    ctx.arc(pos[0], pos[1], 10, 0, 2 * Math.PI, false);
+    ctx.arc(pos[0], pos[1], 8, 0, 2 * Math.PI, false);
     ctx.fillStyle = color;
     ctx.fill();
     ctx.linewidth = 3;

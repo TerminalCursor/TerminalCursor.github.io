@@ -1,14 +1,38 @@
+// Variables
 let EXTRA_REPULSE_FORCE = 7.5;
+let TIMESTEP = 10;
+let MAX = 300;
+let DT = 0.05;
+let FRICTION = 0.8;
+let MOVE = true;
+let t = 0;
+let nodes = [];
+let edges = [];
+let gedges = [];
 let currentNode = undefined;
-let moveTarg = false;
-var canvas = document.getElementById('webGLCanvas');
-canvas.width  = window.innerWidth - 16;
-canvas.height = window.innerHeight - (canvas.offsetTop + 16 + 20);
-var ctx = canvas.getContext('2d');
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-//ctx.font = '30px Arial';
-//ctx.fillText("Test", 0, 30);
+let SEP_CONST = 100;
 
+let lastMouseX = null;
+let lastMouseY = null;
+
+let camUpAxis = [0, -SEP_CONST, 0]; // Positive Down
+let camRightAxis = [SEP_CONST, 0, 0]; // Positive Right
+
+/* Register the canvas */
+var canvas = document.getElementById('webGLCanvas');
+canvas.width  = window.innerWidth - (canvas.offsetLeft * 2);
+canvas.height = window.innerHeight - (canvas.offsetTop + 20);
+window.onresize = function() {
+    canvas.width  = window.innerWidth - (canvas.offsetLeft * 2);
+    canvas.height = window.innerHeight - (canvas.offsetTop + 20);
+}
+var ctx = canvas.getContext('2d');
+
+// Clear the canvas
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+// Model Data
+// Adjacency Matrix - Determines inner connectivity of the graph nodes
 let adjacency_matrix = [
     [0,1,0,0,0,0,0,1],
     [1,0,1,0,0,0,1,0],
@@ -19,7 +43,7 @@ let adjacency_matrix = [
     [0,1,0,0,0,1,0,1],
     [1,0,0,0,0,0,1,0]
 ];
-
+// Pos Matrix - Determines the strand positions
 let pos_matrix = [
     [1,1,1],
     [2,1,1],
@@ -30,7 +54,7 @@ let pos_matrix = [
     [2,2,1],
     [1,2,1]
 ];
-
+// Vel Matrix - Determines the strand velocities
 let vel_matrix = [
     [0,0,0],
     [0,0,0],
@@ -42,13 +66,16 @@ let vel_matrix = [
     [0,0,0]
 ];
 
+// Get the endpoints of the line formed by the edge
 let getLine = function(edge) {
     let line = [];
-    line.push([edge.nodes[0].pos[0], edge.nodes[0].pos[1]]);
-    line.push([edge.nodes[1].pos[0], edge.nodes[1].pos[1]]);
+    line.push([edge.nodes[0].pos[0], edge.nodes[0].pos[1], edge.nodes[0].pos[2]]);
+    line.push([edge.nodes[1].pos[0], edge.nodes[1].pos[1], edge.nodes[1].pos[2]]);
     return line;
 }
 
+// Node
+// This is used to represent the strand
 class Node {
     constructor(pos, vel, id) {
         this.pos = pos;
@@ -61,13 +88,17 @@ class Node {
     }
 }
 
+// Edge
+// This is used to represent the connectivities of the strands
 class Edge {
     constructor() {
+        // Constructor takes in 2 nodes as arguments and creates an edge
         this.nodes = arguments;
         this.relaxed = 50;
         this.k = 10;
     }
 
+    // Used to set the relaxed length and k of the edge
     setParams(relaxed, k) {
         if(relaxed != undefined) {
             this.relaxed = relaxed;
@@ -77,12 +108,14 @@ class Edge {
         }
     }
 
+    // Gets the 2D length of the edge
     length() {
         let line = getLine(this);
         let length = Math.sqrt(Math.pow(line[1][0] - line[0][0], 2) + Math.pow(line[1][1] - line[0][1], 2));
         return length;
     }
 
+    // Get the r vector of the edge pointing from the first node to the second node
     r() {
         let r = [];
         for(let i = 0; i < this.nodes[0].pos.length;i++) {
@@ -91,6 +124,7 @@ class Edge {
         return r;
     }
 
+    // Get the unit vector from the first node pointing to the second node
     rHat() {
         let rhat = this.r();
         for(let i = 0; i < rhat.length; i++) {
@@ -99,6 +133,7 @@ class Edge {
         return rhat;
     }
 
+    // Get the force on the first node (including direction)
     forceArrowN1() {
         let rhat = this.rHat();
         let forceMag = this.k * (this.length() - this.relaxed);
@@ -108,6 +143,7 @@ class Edge {
         }
         return forceArrow;
     }
+    // Get the force on the second node (including direction)
     forceArrowN2() {
         let rhat = this.rHat();
         let forceMag = this.k * (this.length() - this.relaxed);
@@ -119,6 +155,8 @@ class Edge {
     }
 }
 
+// GEdge
+// This is used to create a repulsive force to prevent overlapping nodes without rigid body collision detection calculations
 class GEdge {
     constructor() {
         this.nodes = arguments;
@@ -191,6 +229,7 @@ class GEdge {
     }
 }
 
+// Canvas method to draw nodes
 let drawDot = function(ctx, pos, color) {
     ctx.beginPath();
     ctx.arc(pos[0], pos[1], 10, 0, 2 * Math.PI, false);
@@ -202,6 +241,7 @@ let drawDot = function(ctx, pos, color) {
 
 }
 
+// Canvas method to draw lines
 let drawLine = function(ctx, ends) {
     ctx.beginPath();
     ctx.strokeStyle = '#030';
@@ -210,9 +250,7 @@ let drawLine = function(ctx, ends) {
     ctx.stroke();
 }
 
-let nodes = [];
-let edges = [];
-let gedges = [];
+// Method to import graph data
 let importNEG = function() {
     nodes = [];
     edges = [];
@@ -221,7 +259,11 @@ let importNEG = function() {
     for(let subn = 0; subn < pos_matrix.length; subn++) {
         let pos = pos_matrix[subn];
         let vel = vel_matrix[subn];
+        let nodeX = canvas.width / 2 + (pos[0] * camRightAxis[0] + pos[1] * camRightAxis[1] + pos[2] * camRightAxis[2]);
+        let nodeY = canvas.height / 2 + (pos[0] * camUpAxis[0] + pos[1] * camUpAxis[1] + pos[2] * camUpAxis[2]);
+        let nodeZ = 0;
         nodes.push(new Node([pos[0] * 100, pos[1] * 100, pos[2] * 100], vel, subn));
+        //nodes.push(new Node([nodeX, nodeY, 0], vel, subn));
     }
     /* Edges */
     for(let i = 0; i < adjacency_matrix.length; i++) {
@@ -242,24 +284,24 @@ let importNEG = function() {
 }
 importNEG();
 
-let TIMESTEP = 10;
-let MAX = 300;
-let DT = 0.05;
-let FRICTION = 0.8;
-let MOVE = true;
-let t = 0;
+// Canvas Drawing Loop - Loop every TIMESTEP
 let moveTimer = setInterval(() => {
     t += DT;
+    // Clear the screen
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Draw the nodes
     for(let noden = 0; noden < nodes.length; noden++) {
         let node = nodes[noden];
         drawDot(ctx, node.pos, node.color);
     }
+    // Draw the edges
     for(let edgen = 0; edgen < edges.length; edgen++) {
         let edge = edges[edgen];
         drawLine(ctx, getLine(edge));
     }
+    // Update positions if moving the particles around
     if(MOVE) {
+        // First push away the nodes if they are too close
         for(let gedgen = 0; gedgen < gedges.length; gedgen++) {
             let gedge = gedges[gedgen];
             if(gedge.doForce()) {
@@ -277,6 +319,7 @@ let moveTimer = setInterval(() => {
                 gedge.nodes[1].color = 'blue';
             }
         }
+        // Then update the spring force on the connections between strands
         for(let edgen = 0; edgen < edges.length; edgen++) {
             let edge = edges[edgen];
             for(let i = 0; i < edge.forceArrowN1().length; i++) {
@@ -289,25 +332,26 @@ let moveTimer = setInterval(() => {
             }
         }
     }
+    // Get the last position of the selected node - This fixes the issue where the user holds a node still but the node succumbs to the influence of the forces acting upon it instead of leaving it anchored
     if(currentNode != undefined && lastMouseX != undefined && lastMouseY != undefined) {
         currentNode.pos[0] = lastMouseX;
         currentNode.pos[1] = lastMouseY;
     }
+
+    // Output 'Demo Version'
     ctx.fillStyle = 'black';
     ctx.strokeStyle = 'black';
     ctx.font = '30px Arial';
     ctx.fillText("Demo Version", 0, 30);
 }, TIMESTEP);
-/*
+/* Stop the Drawing Loop
 setTimeout(() => {
     clearInterval(moveTimer);
     console.log("Finished");
 }, MAX*TIMESTEP);
 */
 
-let lastMouseX = null;
-let lastMouseY = null;
-
+// Enable dragging of nodes
 canvas.onmousedown = function(event) {
     console.log(event);
     for(let noden = 0; noden < nodes.length; noden++) {
@@ -336,8 +380,6 @@ canvas.onmousedown = function(event) {
         }
     }
 }
-
-
 canvas.onmouseup = function(event) {
     console.log(event);
     currentNode = undefined;
@@ -346,6 +388,7 @@ canvas.onmouseup = function(event) {
     lastMouseY = null;
 }
 
+// Keyboard events
 document.onkeydown = function(event) {
     console.log(event);
     if(event.key == "p") {

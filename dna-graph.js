@@ -387,42 +387,6 @@ canvas.onmouseup = function(event) {
     lastMouseX = null;
     lastMouseY = null;
 }
-// Enable dragging of nodes
-canvas.ontouchstart = function(event) {
-    console.log(event);
-    for(let noden = 0; noden < nodes.length; noden++) {
-        let node = nodes[noden];
-        let dist = 0;
-        let evtX = event.clientX - canvas.offsetLeft;
-        let evtY = event.clientY - canvas.offsetTop;
-        lastMouseX = evtX;
-        lastMouseY = evtY;
-        dist += (evtX - node.pos[0]) * (evtX - node.pos[0]);
-        dist += (evtY - node.pos[1]) * (evtY - node.pos[1]);
-        if(Math.sqrt(dist) <= 13) {
-            currentNode = node;
-        }
-    }
-    let evtX = event.clientX - canvas.offsetLeft;
-    canvas.ontouchmove = function(event) {
-        console.log(event);
-        let evtX = event.clientX - canvas.offsetLeft;
-        let evtY = event.clientY - canvas.offsetTop;
-        lastMouseX = evtX;
-        lastMouseY = evtY;
-        if(currentNode != undefined) {
-            currentNode.pos[0] = evtX;
-            currentNode.pos[1] = evtY;
-        }
-    }
-}
-canvas.ontouchend = function(event) {
-    console.log(event);
-    currentNode = undefined;
-    canvas.onmousemove = null;
-    lastMouseX = null;
-    lastMouseY = null;
-}
 
 // Keyboard events
 document.onkeydown = function(event) {

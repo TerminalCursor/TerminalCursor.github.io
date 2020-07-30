@@ -7,6 +7,12 @@
   <description>My RSS Feed</description>
 
   <item>
+    <title>Post 0001</title>
+    <description>I have updated my website's navigation and removed links to JS enabled pages. I will attempt to recreate the utilities in another language other than JavaScript and distribute them on my Github since I think that JavaScript opens up more security holes than has benefits.</description>
+    <link>https://TerminalCursor.github.io/posts#post-0001</link>
+  </item>
+
+  <item>
     <title>Introduction</title>
     <description>Welcome to my website. I have designed it (barring the Uncertainty Propogation Calculator that uses JS) so that it can be viewed in any browser, even a CLI browser.</description>
     <link>https://TerminalCursor.github.io/posts#post-0000</link>

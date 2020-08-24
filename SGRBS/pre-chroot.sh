@@ -24,9 +24,15 @@ if [ "${PING_SUCCESS}" == "0" ]; then
 		tar xpvf $(basename ${AUTOBUILD_ISO}) --xattrs-include='*.*' --numeric-owner
 		printf "What architecture? "
 		read ARCH
-		printf "COMMON_FLAGS=\"-march=$ARCH -O2 -pipe\"\nCFLAGS=\"$${COMMON_FLAGS}\"\nCXXFLAGS=\"$${COMMON_FLAGS}\"\n" >> /mnt/gentoo/etc/portage/make.conf
+		printf "COMMON_FLAGS=\"-march=$ARCH -O2 -pipe\"\nCFLAGS=\"$${COMMON_FLAGS}\"\nCXXFLAGS=\"$${COMMON_FLAGS}\"\n" > /mnt/gentoo/etc/portage/make.conf
 		NUM_CORE=$(lscpu | grep "^Core" | awk '{print $NF}')
-		printf "MAKE_OPTS="-j$(($NUM_CORE + 1))" >> /mnt/gentoo/etc/portage/make.conf
+		printf "\nMAKE_OPTS=\"-j$(($NUM_CORE + 1))\"" >> /mnt/gentoo/etc/portage/make.conf
+		printf "\nFCFLAGS=\"${COMMON_FLAGS}\"" >> /mnt/gentoo/etc/portage/make.conf
+		printf "\nFFLAGS=\"${COMMON_FLAGS}\"" >> /mnt/gentoo/etc/portage/make.conf
+		printf "\nPORTDIR=\"/var/db/repos/gentoo\"" >> /mnt/gentoo/etc/portage/make.conf
+		printf "\nDISTDIR=\"/var/cache/distfiles\"" >> /mnt/gentoo/etc/portage/make.conf
+		printf "\nPKGDIR=\"/var/cache/binpkgs\"" >> /mnt/gentoo/etc/portage/make.conf
+		printf "\nLC_MESSAGES=C\n" >> /mnt/gentoo/etc/portage/make.conf
 		nano -w /mnt/gentoo/etc/portage.conf
 		cp --dereference /etc/resolv.conf /mnt/gentoo/etc
 		mount --types proc /proc /mnt/gentoo/proc

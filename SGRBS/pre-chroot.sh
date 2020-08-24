@@ -27,7 +27,7 @@ if [ "${PING_SUCCESS}" == "0" ]; then
 		printf "COMMON_FLAGS=\"-march=$ARCH -O2 -pipe\"\nCFLAGS=\"$${COMMON_FLAGS}\"\nCXXFLAGS=\"$${COMMON_FLAGS}\"" >> /mnt/gentoo/etc/portage.conf
 		NUM_CORE=$(lscpu | grep "^Core" | awk '{print $NF}')
 		printf "MAKE_OPTS="-j$(($NUM_CORE + 1))" >> /mnt/gentoo/etc/portage.conf
-		nano /mnt/gentoo/etc/portage.conf
+		nano -w /mnt/gentoo/etc/portage.conf
 		cp --dereference /etc/resolv.conf /mnt/gentoo/etc
 		mount --types proc /proc /mnt/gentoo/proc
 		mount --rbind /sys /mnt/gentoo/sys

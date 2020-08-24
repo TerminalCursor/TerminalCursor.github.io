@@ -24,9 +24,9 @@ if [ "${PING_SUCCESS}" == "0" ]; then
 		tar xpvf $(basename ${AUTOBUILD_ISO}) --xattrs-include='*.*' --numeric-owner
 		printf "What architecture? "
 		read ARCH
-		printf "COMMON_FLAGS=\"-march=$ARCH -O2 -pipe\"\nCFLAGS=\"$${COMMON_FLAGS}\"\nCXXFLAGS=\"$${COMMON_FLAGS}\"" >> /mnt/gentoo/etc/portage.conf
+		printf "COMMON_FLAGS=\"-march=$ARCH -O2 -pipe\"\nCFLAGS=\"$${COMMON_FLAGS}\"\nCXXFLAGS=\"$${COMMON_FLAGS}\"\n" >> /mnt/gentoo/etc/portage/make.conf
 		NUM_CORE=$(lscpu | grep "^Core" | awk '{print $NF}')
-		printf "MAKE_OPTS="-j$(($NUM_CORE + 1))" >> /mnt/gentoo/etc/portage.conf
+		printf "MAKE_OPTS="-j$(($NUM_CORE + 1))" >> /mnt/gentoo/etc/portage/make.conf
 		nano -w /mnt/gentoo/etc/portage.conf
 		cp --dereference /etc/resolv.conf /mnt/gentoo/etc
 		mount --types proc /proc /mnt/gentoo/proc

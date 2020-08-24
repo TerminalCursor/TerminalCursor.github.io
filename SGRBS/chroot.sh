@@ -4,9 +4,10 @@ emerge --sync
 echo "Updating @world"
 read CONTINUE
 emerge --verbose --update --deep --newuse @world
-printf "\nUSE=\"X pdf png jpeg alsa imlib latex pulseaudio luajit -qtwebengine\"\n" >> /etc/portage/make.conf
+printf "\nUSE=\"X icu xetex cups text pdf png jpeg alsa imlib latex pulseaudio luajit -qtwebengine\"\n" >> /etc/portage/make.conf
 printf ">=sys-kernel/linux-firmware-20200817 linux-fw-redistributable no-source-code" >> /etc/portage/package.license
-emerge neovim neofetch w3m fvwm calcurse dev-vcs/git zsh sudo go
+printf "\n>=www-client/vivaldi-3.2.1967.47_p1 Vivaldi" >> /etc/portage/package.license
+emerge neovim neofetch w3m fvwm calcurse dev-vcs/git zsh sudo go libXft vivaldi
 printf "What timezone? Ex: America/Phoenix"
 read TIMEZONE
 echo "${TIMEZONE}" > /etc/timezone

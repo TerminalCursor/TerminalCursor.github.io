@@ -4,10 +4,12 @@ emerge --sync
 echo "Updating @world"
 read CONTINUE
 emerge --verbose --update --deep --newuse @world
-printf "\nUSE=\"X icu xetex cups text pdf png jpeg alsa imlib latex pulseaudio luajit -qtwebengine\"\n" >> /etc/portage/make.conf
+printf "\nUSE=\"X elogind sqlite icu xetex cups text pdf png jpeg alsa imlib latex pulseaudio luajit -qtwebengine\"\n" >> /etc/portage/make.conf
 printf ">=sys-kernel/linux-firmware-20200817 linux-fw-redistributable no-source-code" >> /etc/portage/package.license
 printf "\n>=www-client/vivaldi-3.2.1967.47_p1 Vivaldi" >> /etc/portage/package.license
-emerge neovim neofetch w3m fvwm calcurse dev-vcs/git zsh sudo go libXft vivaldi
+printf "\n=media-fonts/font-bh-ttf-1.0.3-r1 bh-luxi" >> /etc/portage/package.license
+printf "\n=media-fonts/font-bh-type1-1.0.3-r1 bh-luxi" >> /etc/portage/package.license
+emerge neovim neofetch w3m fvwm calcurse dev-vcs/git zsh sudo go libXft vivaldi xorg-x11 fonttosfnt htop
 printf "What timezone? Ex: America/Phoenix"
 read TIMEZONE
 echo "${TIMEZONE}" > /etc/timezone
@@ -50,3 +52,20 @@ echo "Use (passwd) to set root password"
 echo "Use (useradd -m -G users,wheel,audio -s /bin/zsh USERNAME) to create a new user"
 echo "Use passwd (USERNAME) to set USERNAME's password"
 printf "Run the following to finish:\nexit\numount -l /mnt/gentoo/dev{/shm,/pts,}\numount -R /mnt/gentoo\nreboot"
+#POST CHROOT
+#cd /tmp
+#git clone https://github.com/turquoise-hexagon/cherry.git
+#cd cherry
+#./make.sh
+#mkdir ~/.local/share/fonts
+#mv *.otb ~/.local/share/fonts
+#git clone https://github.com/LukeSmithxyz/st.git
+#cd st
+#make clean install
+#go get github.com/gokcehan/lf
+#curl -LO terminalcursor.xyz/fvwm/.fvwm2rc
+#curl -LO terminalcursor.xyz/fvwm/*.xpm
+# Add alias startx=startx fvwm -- vt1
+# Add alias vim=nvim
+# Add PATH/ZDOTDIR
+# Fix /etc/profile.env

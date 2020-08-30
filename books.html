@@ -1,63 +1,74 @@
 <!DOCTYPE html>
 <HTML>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOSS Site</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-  </head>
-  <body>
-    <div id="main">
-      <div id="navbar">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="links.html">Links</a>
-            <div class="dropdown-content">
-              <a href="links.html#phys-links">Physics</a>
-              <a href="links.html#comp-links">Computer Science</a>
-              <a href="links.html#misc-links">Miscellany</a>
-            </div>
-          </li>
-          <li><a href="posts.html">Posts</a></li>
-          <li><a class="active" href="books.html">Books</a></li>
-          <li style="float: right"><a href="about.html">About</a></li>
-          <li style="float: right"><a href="https://github.com/TerminalCursor">Github</a></li>
-        </ul>
-      </div>
-      <hr />
-      <div class="contents">
-        <h1 id="physics">Physics</h1>
-        <ul>
-          <li>University Physics with Modern Physics, 14th Edition, Young and Freedman</li>
-          <li>Intro to Quantum Mechchanics, Third Edition, David J. Griffiths and Darrell F. Schroeter</li>
-          <li>Quantum Mechanics Concepts and Applications, Second Edition, Nouredine Zettili</li>
-          <li>Classical Mechanics, John R. Taylor</li>
-          <li>An Introduction to Stellar Astrophysics, Francis LeBlanc</li>
-        </ul>
-        <h1 id="mathematics">Mathematics</h1>
-        <ul>
-          <li>An Illustrated Theory of Numbers, Martin H. Weissman</li>
-          <li>Linear Algebra with Applications, Ninth Edition, Steven J. Leon</li>
-          <li>Understanding Analysis, Second Edition, Stephen Abbott</li>
-          <li>An Introduction to Analysis, Third Edition, William R. Wade</li>
-          <li>How to Prove It: A Structured Approach, Second Edition, Daniel J. Velleman</li>
-          <li>Language, Proof and Logic, Second Edition, Dave Barker-Plummer, John Etchemendy and Jon Barwise</li>
-        </ul>
-	<h1 id="theology">Theology</h1>
-	<ul>
-	  <li>Didache</li>
-	  <li>Assorted Works by Tertullian</li>
-	  <li>Mere Christianity, C.S. Lewis</li>
-	  <li>Assorted Works by Dietrich Bonhoeffer</li>
-	  <li>Assorted Works by N.T. Wright</li>
-	</ul>
-	<h1 id="other">Other</h1>
-	<ul>
-	  <li>Industrial Society and Its Future, Theodore Kaczynski</li>
-	</ul>
-      </div>
-    </div>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Books</title>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+	</head>
+	<body>
+		<h1 class="center">TerminalCursor's Books</h1>
+		<div class="navbar">
+			<ul>
+				<li><a href="index.html"><img src="house.svg" alt="house"></img>Home</a></li>
+				<li><span><img src="cap.svg" alt="cap"></img>Academia</span>
+					<div class="dropdown-content">
+						<a href="physics.html"><img src="atom.svg" alt="physics"></img>Physics</a>
+						<a href="mathematics.html"><img src="pi.svg" alt="pi"></img>Mathematics</a>
+						<a href="computer-science.html"><img src="mouse.svg" alt="mouse"></img>Computer Science</a>
+						<a href="theology.html"><img src="cross.svg" alt="cross"></img>Theology</a>
+					</div>
+				</li>
+				<li><span><img src="ukr-flg.svg" alt="ukraine flag"></img>Personal</span>
+					<div class="dropdown-content">
+						<a href="posts.html"><img src="pen.svg" alt="pen"></img>Posts</a>
+						<a class="rss-feed" href="rss.xml"><img src="tower.svg" alt="tower"></img>RSS</a>
+						<a class="active" href="books.html"><img src="book.svg" alt="book"></img>Books</a>
+						<a href="about.html"><img src="question.svg" alt="question"></img>About Me</a>
+						<a class="external" href="https://github.com/TerminalCursor"><img src="github.svg" alt="github"></img>GitHub</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="contents">
+			<h1 id="physics">Physics</h1>
+			<ul>
+				<li>University Physics with Modern Physics, 14th Edition, Young and Freedman</li>
+				<li>Intro to Quantum Mechchanics, Third Edition, David J. Griffiths and Darrell F. Schroeter</li>
+				<li>Quantum Mechanics Concepts and Applications, Second Edition, Nouredine Zettili</li>
+				<li>Classical Mechanics, John R. Taylor</li>
+				<li>An Introduction to Stellar Astrophysics, Francis LeBlanc</li>
+			</ul>
+			<h1 id="mathematics">Mathematics</h1>
+			<ul>
+				<li>An Illustrated Theory of Numbers, Martin H. Weissman</li>
+				<li>Linear Algebra with Applications, Ninth Edition, Steven J. Leon</li>
+				<li>Understanding Analysis, Second Edition, Stephen Abbott</li>
+				<li>An Introduction to Analysis, Third Edition, William R. Wade</li>
+				<li>How to Prove It: A Structured Approach, Second Edition, Daniel J. Velleman</li>
+				<li>Language, Proof and Logic, Second Edition, Dave Barker-Plummer, John Etchemendy and Jon Barwise</li>
+			</ul>
+			<h1 id="theology">Theology</h1>
+			<ul>
+				<li>Didache</li>
+				<li>Assorted Works by Tertullian</li>
+				<li>Mere Christianity, C.S. Lewis</li>
+				<li>Assorted Works by Dietrich Bonhoeffer</li>
+				<li>Assorted Works by N.T. Wright</li>
+			</ul>
+			<h1 id="other">Other</h1>
+			<ul>
+				<li>Industrial Society and Its Future, Theodore Kaczynski</li>
+			</ul>
+		</div>
+		<!--
+		<footer>
+			<object data="forest.svg" type="image/svg+xml" width="100%">
+			  <img src="" alt="forest" />
+			</object>
+		</footer>
+		-->
+	</body>
 </HTML>
 <!--AUTHORS: http://www.earlychristianwritings.com/
 # Protestant

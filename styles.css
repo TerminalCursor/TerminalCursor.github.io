@@ -147,14 +147,14 @@ li:hover .dropdown-content {
 	.contents {
 		padding: 0;
 		/*min-width: 480px;*/
-		width: 90vw;
+		width: 75vw;
 		margin: 0 auto;
 	}
 
 	.post {
 		padding: 0;
 		/*min-width: 480px;*/
-		width: 90vw;
+		width: 75vw;
 		margin: 0 auto;
 
 		text-decoration: none;

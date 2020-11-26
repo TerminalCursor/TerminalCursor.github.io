@@ -1,7 +1,6 @@
 html, body {
 	margin: 0.25em;
-	background-color: #123;
-	/*background-color: #007;*/
+	background-color: #007;
 	color: #AAA;
 }
 
@@ -12,19 +11,19 @@ h1 {
 }
 
 a {
-	color: #0AA;
+	color: #999;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #A70;
+	color: #555;
 }
 
 hr {
 	border-width: 0;
 	height: 1px;
-	color: #0AA;
-	background-color: #0AA;
+	color: #999;
+	background-color: #999;
 }
 /*
 #687864

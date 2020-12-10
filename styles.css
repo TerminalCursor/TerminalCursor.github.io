@@ -1,7 +1,7 @@
 html, body {
 	margin: 0.25em;
-	background-color: #007;
-	color: #AAA;
+	background-color: #0321B7;
+	color: #B7B7B7;
 }
 
 h1 {
@@ -11,12 +11,12 @@ h1 {
 }
 
 a {
-	color: #999;
+	color: #B7B7B7;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #555;
+	color: #777;
 }
 
 hr {

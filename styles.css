@@ -1,7 +1,5 @@
 html, body {
 	margin: 0.25em;
-	background-color: #18256a;
-	color: #B7B7B7;
 }
 
 h1 {
@@ -11,24 +9,10 @@ h1 {
 }
 
 a {
-	color: #B7B7B7;
 	text-decoration: none;
-}
-
-a:hover {
-	color: #777;
 }
 
 hr {
 	border-width: 0;
 	height: 1px;
-	color: #999;
-	background-color: #999;
 }
-/*
-#687864
-#31708E
-#5085A5
-#8FC1E3
-#F7F9FB
-*/

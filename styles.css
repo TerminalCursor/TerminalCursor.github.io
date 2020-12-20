@@ -12,6 +12,10 @@ a {
 	text-decoration: none;
 }
 
+a:visited {
+	color: blue;
+}
+
 hr {
 	border-width: 0;
 	height: 1px;

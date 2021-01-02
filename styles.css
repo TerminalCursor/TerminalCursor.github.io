@@ -21,7 +21,3 @@ hr {
 	height: 1px;
 	background-color: black;
 }
-
-hr.dots {
-	border-top-style: dotted;
-}

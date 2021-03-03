@@ -16,8 +16,8 @@ function perlin_noise (canvas) {
 	for (var i = 0; i < offscreen_pixels.length; i += 4) {
 		offscreen_pixels[i    ] =
 		offscreen_pixels[i + 1] =
-		offscreen_pixels[i + 2] = Math.floor (Math.random () * 206) + 50
-		offscreen_pixels[i + 3] = 65
+		offscreen_pixels[i + 2] = Math.floor (Math.random () * 256)
+		offscreen_pixels[i + 3] = 80
 	}
 
 	offscreen_ctx.putImageData (offscreen_id, 0, 0)

@@ -21,3 +21,14 @@ hr {
 	height: 1px;
 	background-color: black;
 }
+
+canvas{
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:-1;
+}
+
+#background  {
+	position: fixed;
+}

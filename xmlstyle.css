@@ -1,9 +1,19 @@
 rss {
+	margin-top: 0.25em;
+	margin-left: 10%;
+	margin-right: 10%;
 	background-color: #f4ecd8;
 	color: #5b4636;
+	font-family: Helvetica, Arial, sans-serif;
 }
 
 item, title, link {
+	display: block;
+	padding-bottom: 0.25em;
+}
+
+description {
+	padding-bottom: 0.5em;
 	display: block;
 }
 
@@ -25,8 +35,12 @@ channel title {
 	color: #5b4636;
 }
 
-channel link {
+channel link, channel link:visited {
 	color: #00F;
+}
+
+link:hover {
+	color: #44A;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,7 +53,14 @@ channel link {
 		color: #ddd;
 	}
 
-	channel link {
+	channel link, channel link:visited {
 		color: #0FF;
 	}
+
+	link:hover {
+		color: #4AA;
+	}
+}
+
+@media print {
 }

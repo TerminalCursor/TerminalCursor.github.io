@@ -24,7 +24,7 @@ a {
 	text-decoration: none;
 }
 
-a.rss {
+a.rss, a.rss:visited {
 	color: #F00;
 }
 
@@ -65,7 +65,7 @@ hr {
 		text-decoration: none;
 	}
 	
-	a.rss {
+	a.rss, a.rss:visited {
 		color: #0A0;
 		text-decoration: none;
 	}

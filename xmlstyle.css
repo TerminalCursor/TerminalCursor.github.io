@@ -1,0 +1,45 @@
+rss {
+	background-color: #f4ecd8;
+	color: #5b4636;
+}
+
+item, title, link {
+	display: block;
+}
+
+channel title {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+item title {
+	font-size: 20px;
+	font-style: italic;
+}
+
+link {
+	text-decoration: underline;
+}
+
+channel title {
+	color: #5b4636;
+}
+
+channel link {
+	color: #00F;
+}
+
+@media (prefers-color-scheme: dark) {
+	rss {
+		background-color: #111;
+		color: #ddd;
+	}
+
+	channel title {
+		color: #ddd;
+	}
+
+	channel link {
+		color: #0FF;
+	}
+}

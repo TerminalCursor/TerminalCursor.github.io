@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="xmlstyle.css"?>
 <rss version="2.0">
 
 <channel>
   <title>TerminalCursor's RSS Feed</title>
-  <link>https://TerminalCursor.github.io</link>
+  <link>https://TerminalCursor.xyz</link>
   <description>My RSS Feed</description>
 
   <item>
     <title>Post 0002</title>
     <description>I have completely purged this site of all JavaScript. This should enable full functionality with CLI browsers. Additionally, I have created my own script to run to configure my Gentoo system up to the chroot environment. I will later add chroot.sh and post-chroot.sh to sequentially rice the Gentoo system to a complete FVWM enabled environment automatically. So far, the pre-chroot is working exactly as intended.</description>
-    <link>https://TerminalCursor.github.io/posts#post-0002</link>
+    <link>https://TerminalCursor.xyz/posts#post-0002</link>
   </item>
 
   <item>
     <title>Post 0001</title>
     <description>I have updated my website's navigation and removed links to JS enabled pages. I will attempt to recreate the utilities in another language other than JavaScript and distribute them on my Github since I think that JavaScript opens up more security holes than has benefits.</description>
-    <link>https://TerminalCursor.github.io/posts#post-0001</link>
+    <link>https://TerminalCursor.xyz/posts#post-0001</link>
   </item>
 
   <item>
     <title>Introduction</title>
     <description>Welcome to my website. I have designed it (barring the Uncertainty Propogation Calculator that uses JS) so that it can be viewed in any browser, even a CLI browser.</description>
-    <link>https://TerminalCursor.github.io/posts#post-0000</link>
+    <link>https://TerminalCursor.xyz/posts#post-0000</link>
   </item>
 </channel>
 

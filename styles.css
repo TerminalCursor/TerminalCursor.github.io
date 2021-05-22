@@ -63,6 +63,8 @@ html, body {
 }
 
 .right {
+	float: right;
+	width: 36%;
 }
 
 .hrd {
@@ -77,6 +79,7 @@ html, body {
 
 	.right {
 		float: none;
+		width: auto;
 	}
 
 	.hrd {

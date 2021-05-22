@@ -1,82 +1,90 @@
-html, body {
-	margin-top: 0.25em;
-	margin-bottom: 40%;
-	margin-left: 10%;
-	margin-right: 10%;
-	background-color: #ccd8ff;
-	background-color: #f4ecd8;
-	color: #5b4636;
-	font-family: Helvetica, Arial, sans-serif;
+html {
+	background-color: #1a1e26;
+	/*background-image: url("rocket.jpg");
+	background-repeat:no-repeat;
+	background-position: center center;*/
 }
 
-h1 {
-	margin-top: 0;
-	margin-bottom: 0.25em;
+html, body {
+	margin: 0;
+	padding: 0;
+	color: #aaa;
+}
+
+.main {
+	display: block;
+	background-color: #15191f;
+}
+
+.item {
+	display: inline;
+	float: left;
+}
+
+.main ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.main ul li {
+    float: left;
+}
+
+.main ul li .item a, .main ul li .item a:visited {
+	padding: 1em;
+	display: block;
+	text-decoration: none;
+	color: #aaa;
+}
+
+.item:hover {
+	background-color: #000;
+}
+
+.main hr {
+	margin: 0;
+}
+
+.content, .content h1 {
+	margin: 1%;
 	padding: 0;
 }
 
-h1.h1list, h1.h1list a, h2.h1list, h2.h1list a {
-	color: #00F;
+.content h1 {
+	padding: 0;
+	margin: 0;
 }
 
-a {
-	color: #00F;
-	text-decoration: none;
+.left {
+	float: left;
+	width: 60%;
 }
 
-a.rss, a.rss:visited {
-	color: #F00;
+.right {
 }
 
-a:visited {
-	color: #0066BB;
+.hrd {
+	visibility: hidden;
 }
 
-hr {
-	border-width: 0;
-	height: 1px;
-	background-color: #5b4636;
-}
+@media (max-width : 499px) {
+	.left {
+		float: none;
+		width: auto;
+	}
 
+	.right {
+		float: none;
+	}
 
-@media (prefers-color-scheme: dark) {
-	html, body {
-		margin-top: 0.25em;
-		margin-bottom: 40%;
-		margin-left: 10%;
-		margin-right: 10%;
-		background-color: #111;
-		color: #ddd;
-		font-family: Helvetica, Arial, sans-serif;
+	.hrd {
+		border: 3px solid #aaa;
+		visibility: visible;
 	}
-	
-	h1 {
-		margin-top: 0;
-		margin-bottom: 0.25em;
-		padding: 0;
-	}
-	
-	h1.h1list, h1.h1list a, h2.h1list, h2.h1list a {
-		color: #0FF;
-	}
-	
-	a {
-		color: #0FF;
-		text-decoration: none;
-	}
-	
-	a.rss, a.rss:visited {
-		color: #0A0;
-		text-decoration: none;
-	}
-	
-	a:visited {
-		color: #BB6666;
-	}
-	
-	hr {
-		border-width: 0;
-		height: 1px;
-		background-color: #333;
+
+	.main ul li .item a, .main ul li .item a:visited {
+		padding: 0.5em;
 	}
 }

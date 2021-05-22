@@ -7,14 +7,57 @@
 		<link rel="stylesheet" type="text/css" href="styles.css" />
 	</head>
 	<body>
-		<h1>Home</h1>
-		Hello, I am glad you came!
-		<hr/>
-		<h1>Додому</h1>
-		Привіт, я рада, що ти прийшов!
-		<hr />
-		<a href="site-map.html">Sitemap</a>
-		<br />
-		Last Updated: October 6, 2020
+		<h1 style="padding: 0;margin:0;margin-left: 1%;display:inline">Home</h1>
+		<span style="margin-left: 1em">~<i>tcurse</i></span>
+		<div class="main">
+			<ul>
+				<li><div class="item"><a href="https://wiby.me/surprise">Surprise Me</a></div></li>
+				<li><div class="item"><a href="https://wiki.osdev.org/Raspberry_Pi_Bare_Bones">Bare Bones</a></div></li>
+				<li><div class="item"><a href="https://wiki.osdev.org/Raspberry_Pi_Bare_Bones_Rust">Bare Bones (Rust)</a></div></li>
+				<li><div class="item"><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/06_uart_chainloader/src">Rust #2</a></div></li>
+				<li><div class="item"><a href="https://github.com/s-matyukevich/raspberry-pi-os/blob/master/docs/lesson01/rpi-os.md">RPi Bare Metal</a></div></li>
+				<li><div class="item"><a href="https://wwwmpa.mpa-garching.mpg.de/gadget4/">Gadget-4</a></div></li>
+				<li><div class="item"><a href="https://javascript.info/">JavaScript</a></div></li>
+				<li><div class="item"><a href="https://c9x.me/x86/">x86 Instructions</a></div></li>
+				<li><div class="item"><a href="http://www.ctyme.com/intr/int.htm">BIOS Interrupts</a></div></li>
+				<li><div class="item"><a href="https://www.small-cabin.com/small-cabin-off-grid-power-source.html">Small Cabin</a></div></li>
+				<!--<li><div class="item"><a href=""></a></div></li>-->
+				<li style="float:right"><div class="item"><a href="https://github.com/TerminalCursor/">GitHub</a></div></li>
+			</ul>
+			<hr/>
+		</div>
+		<div class="content left">
+			<h1>Feed</h1>
+			<hr />
+			<div class="post" id="post-0002">
+				<h1>Post 0002</h1>
+				I have completely purged this site of all JavaScript. This should enable full functionality with CLI browsers. Additionally, I have created my own script to run to configure my Gentoo system up to the chroot environment. I will later add chroot.sh and post-chroot.sh to sequentially rice the Gentoo system to a complete FVWM enabled environment automatically. So far, the pre-chroot is working exactly as intended.
+			</div>
+			<hr />
+			<div class="post" id="post-0001">
+				<h1>Post 0001</h1>
+				I have updated my website's navigation and removed links to JS enabled pages. I will attempt to recreate the utilities in another language other than JavaScript and distribute them on my Github since I think that JavaScript opens up more security holes than has benefits.
+			</div>
+			<hr />
+			<div class="post" id="post-0000">
+				<h1>Introduction</h1>
+				Welcome to my website. I have designed it (barring the Uncertainty Propogation Calculator that uses JS) so that it can be viewed in any browser, even a CLI browser.
+			</div>
+		</div>
+		<div class="content right">
+			<hr class="hrd"/>
+			<h1>About</h1>
+			<p>
+				Hello, I am TerminalCursor.
+				I am a Ukrainian-American student pursuing an undergraduate degree in Physics and Mathematics.
+				I am a self-taught programmer.
+			</p>
+			<p>
+				I have experience with x86_64 Assembly, C, Python, Go, C++, C#, Java, Javascript.
+				Scripting languages that I know are POSIX compliant shell, zsh, bash, as well as some basic knowledge of R, Windows Batch, and Powershell.
+				The markup languages I have familiarity with are LaTeX, HTML, and Markdown.
+				One esoteric language I know is IEC 61131-3 Structured Text when I was working on a Schweitzer Real Time Automation Controller for a Public Utility.
+			</p>
+		</div>
 	</body>
 </HTML>

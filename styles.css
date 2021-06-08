@@ -94,18 +94,18 @@ html, body {
 
 @media (prefers-color-scheme: light) {
 	html {
-		background-color: #eee;
+		background-color: #f4ecd8;
 	}
 	.main {
-		background-color: #ccc;
+		background-color: #e0d2af;
 	}
 	.main ul li .item a, .main ul li .item a:visited {
-		color: #444;
+		color: #5b4636;
 	}
 	.item:hover {
-		background-color: #aaa;
+		background-color: #c1b28b;
 	}
 	html, body {
-		color: #000;
+		color: #5b4636;
 	}
 }

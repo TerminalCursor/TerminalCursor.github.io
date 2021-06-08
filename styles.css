@@ -71,6 +71,13 @@ html, body {
 	visibility: hidden;
 }
 
+a, a:visited {
+	color: #0ff;
+}
+a:hover {
+	color: #4aa;
+}
+
 @media (max-width : 499px) {
 	.left {
 		float: none;
@@ -104,6 +111,12 @@ html, body {
 	}
 	.item:hover {
 		background-color: #c1b28b;
+	}
+	a, a:visited {
+		color: #00f;
+	}
+	a:hover {
+		color: #44A;
 	}
 	html, body {
 		color: #5b4636;

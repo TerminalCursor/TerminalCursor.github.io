@@ -97,13 +97,10 @@ html, body {
 		background-color: #eee;
 	}
 	.main {
-		background-color: #444;
+		background-color: #ccc;
 	}
 	.main ul li .item a, .main ul li .item a:visited {
-		color: #DDD;
-	}
-	.main ul li .item:hover a, .main ul li .item:hover a:visited {
-		color: #000;
+		color: #444;
 	}
 	.item:hover {
 		background-color: #aaa;
